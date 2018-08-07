@@ -1,0 +1,270 @@
+div.dragData_wrap {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    bottom: 0;
+    right: 0;
+    border: 1px solid #D1E3E2;
+}
+
+
+.dataHeader {
+    width: 100%;
+    right: 15px;
+    ul.headerSelect {
+        width: 100%;
+        height: 40px;
+        list-style: none;
+        padding: 0;
+        position: relative;
+        li.seTitle {
+            width: 90px;
+            height: 40px;
+            line-height: 40px;
+            border-right: 1px solid #D1E3E2;
+            border-bottom: 1px solid #D1E3E2;
+            text-align: center;
+            cursor: pointer;
+            font-size: 12px;
+            color: #1F2D3D;
+            font-weight: bolder;
+        }
+        li.seTitleActive {
+            border-bottom: none;
+            color: #1ABC9C;
+        }
+        li.blanks {
+            border-bottom: 1px solid #D1E3E2;
+            position: absolute;
+            left: 180px;
+            height: 40px;
+            line-height: 40px;
+            right: 0;
+            top: 0;
+            text-align: center;
+        }
+        li.settingBlanks {
+            left: 90px;
+        }
+    }
+}
+
+.funLists {
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border-bottom: 1px solid #D1E3E2;
+    #freshTimeSetting {
+        height: 40px;
+        left: 50%;
+        margin-left: 15px;
+        .freshTimeSettingSpan {
+            color: #8492A6;
+            font-size: 12px;
+        }
+        .freshTimeSettingDataSpan {
+            color: #1abc9c;
+            font-weight: bold;
+        }
+        .timeShow {
+            width: 250px;
+            height: 40px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .timerSetting {
+            width: 185px;
+            height: 40px;
+            /*padding-top: 10px;*/
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        li {
+            width: 30px;
+            height: 30px;
+            margin-left: 15px;
+            cursor: pointer;
+            img {
+                width: 30px;
+                height: 30px;
+                vertical-align: initial!important;
+            }
+        }
+    }
+    ul.right_operations {
+        width: 200px;
+        height: 20px;
+        padding: 0;
+        margin-right: 8px;
+        li {
+            padding: 0;
+            margin: 0;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+    .fullScreen {
+        font-size: 16px;
+        padding: 3px 7px;
+        background: #fff;
+        color: #8492A6;
+        text-align: center;
+        margin-right: 8px;
+        margin-bottom: 3px;
+        i {
+            margin: 0;
+        }
+    }
+}
+
+#drag_wrap {
+    .fullScreen {
+        font-size: 16px;
+        padding: 3px 7px;
+        background: #fff;
+        color: #8492A6;
+        text-align: center;
+        margin-right: 8px;
+        margin-top:10px i {
+            margin: 0;
+        }
+    }
+    .drag_panel_header {
+        .funLists {
+            width: 100%;
+            height: 50px;
+            background: #dfeceb;
+            #freshTimeSetting {
+                height: 50px;
+                left: 50%;
+                margin-left: 15px;
+                .freshTimeSettingSpan {
+                    color: #8492A6;
+                    font-size: 12px;
+                }
+                .freshTimeSettingDataSpan {
+                    color: #1abc9c;
+                    font-weight: bold;
+                }
+                .timeShow {
+                    width: 250px;
+                    height: 50px;
+                    display: inline-block;
+                    margin-top: 20px;
+                }
+                .timerSetting {
+                    width: 250px;
+                    height: 50px;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    display: inline-block;
+                }
+            }
+            ul {
+                list-style: none;
+                padding: 10px 0;
+                li {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 30px;
+                    margin-left: 15px;
+                    cursor: pointer;
+                    img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+            ul.right_operations {
+                width: 200px;
+                height: 20px;
+                padding: 5px 0 0;
+                margin-right: 8px;
+                li {
+                    padding: 0;
+                    margin: 0;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
+                    img {
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.drag_panel_content {
+    .bgC {
+        background: url("/static/css/images/drag/drag_region_bg.png") no-repeat 0 center;
+        background-size: contain;
+    }
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    h2.typeTips {
+        font-size: 14px;
+        color: rgb(31, 45, 61);
+        text-align: left;
+        height: 40px;
+        margin-top: 0;
+    }
+    .noDataimg {
+        text-align: center;
+        width: 226px;
+        height: 183px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -91px;
+        margin-left: -113px;
+        img {
+            width: 226px;
+            height: 143px;
+        }
+        p {
+            color: #1abc9c;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    }
+    .txtInfo {
+        resize: none;
+        background: transparent;
+        border: none;
+        margin: 0;
+        padding: 0;
+        line-height: 20px;
+        text-align: left;
+    }
+    .extendTxtInfo1 {
+        width: 70%;
+        text-align: center;
+    }
+    .extendTxtInfo {
+        width: 25%;
+        text-align: left;
+    }
+    .extendT {
+        width: 100%;
+        padding: 8px 8px 8px 8px!important !important;
+    }
+    .drag_region {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin: 0 auto 0 0;
+    }
+}

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+@font-face {
+    @include fontFamily;
+}
+body {
+    @include fontFamily;
+    background: $grey;
+    margin: 0;
+    overflow-x: hidden;
+    color: #797979;
+}
+html {
+    position: relative;
+    @include fontFamily;
+    min-height: 100%;
+    background: $grey;
+}
+#ecos{
+  @include fontFamily;
+  font-size: 14px !important;
+}
+* {
+    outline: none !important;
+}
+a{
+    text-decoration: none;
+    &:hover{
+        @include aHover;
+    }
+    &:active {
+        @extend :hover;
+    }
+    &:focus {
+        @extend :hover;
+    }
+}
+#wrapper {
+    @include pm($numPx);
+    @include eosWidth(100%);
+    position: relative;
+}
+.no-bg-input {
+    background-color: #f8f8f8 !important;
+}

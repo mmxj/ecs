@@ -1,0 +1,39 @@
+@charset "UTF-8";
+$fontFamily:'微软雅黑', 'Microsoft YaHei', Arial, 'Helvetica Neue', Helvetica, sans-serif !important;
+$eosNo:normal;
+//文本颜色
+$text: (
+    $key-grey: $val-grey,
+    $key-custom: $val-custom,
+    $key-white: $val-white,
+    $key-danger:$val-danger,
+    $key-muted:$val-muted,
+    $key-primary:$val-primary,
+    $key-warning:$val-warning,
+    $key-success:$val-success,
+    $key-info:$val-info,
+    $key-inverse:$val-inverse,
+    $key-pink:$val-pink,
+    $key-purple:$val-purple,
+    $key-dark:$val-dark,
+);
+
+//0-20px像素数值
+$numPx0:0;
+$numPx1:1px;
+$numPx2:2px;
+$numPx3:3px;
+$numPx4:4px;
+$numPx5:5px;
+$numPx6:6px;
+$numPx7:7px;
+$numPx8:8px;
+$numPx9:9px;
+$numPx10:10px;
+$numPx15:15px;
+$numPx20:20px;
+$numPx:$numPx0;
+
+//0-100%百分值
+$numPercent:1%;
+

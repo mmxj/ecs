@@ -1,0 +1,69 @@
+@charset "UTF-8";
+//图片加载中...
+img[lazy=loading] {
+    /*width: 100px;*/
+    background-position:center center!important;
+    background: url("../../../static/images/loading.gif");
+    //background: url("../../../static/error.png");
+    background-size:100px 100px;
+    background-repeat:no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+img[lazy=error] {
+    /*width: 100px;*/
+    background-position:center center!important;
+
+    background: url("../../../static/images/error.png");
+    //background: url("../../../static/error.png");
+    background-size:100px 100px;
+    background-repeat:no-repeat;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+img[lazy=loaded] {
+    /*width: 100px;*/
+    background-position:center center!important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: white;
+}
+
+//自定义样式
+.lazy-avatar[lazy=loading] {
+    background-position:center center!important;
+    background: url("../../../static/images/loading.gif");
+    background-size:100px 100px;
+    background-repeat:no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+ }
+ .lazy-avatar[lazy=error] {
+    background-position:center center!important;
+    background: url("../../../static/images/user_default.jpg");
+    background-size:100px 100px;
+    background-repeat:no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+ }
+ .lazy-avatar[lazy=loaded] {
+   background-position:center center!important;
+    background: url("../../../static/images/user_default.jpg");
+    background-size:100px 100px;
+    background-repeat:no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+ }

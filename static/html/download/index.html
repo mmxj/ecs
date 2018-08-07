@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0, width=device-width">
+    <title>APP下载</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="/static/plugins/jquery/jquery.v2.2.2.min.js"></script>
+    <style type="text/css">
+        a{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img class="common_img" src="img/download.jpg" />
+        <a id="ios" href="https://itunes.apple.com/app/id1249894982" class="ios"><img class="common_img" src="img/iosbtn.jpg" /></a>
+        <a id="android" class="android" href="http://plf.cleos.com.cn/download/app/android/ecos.apk"><img class="common_img" src="img/androidbtn.jpg" /></a>
+    </div> 
+</body>
+<script type="text/javascript">
+    $(function (){
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(isiOS){
+            $("#ios").show();
+        }else{
+            $("#android").show();
+        }
+    })
+</script>
+</html>

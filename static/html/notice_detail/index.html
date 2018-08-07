@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0, width=device-width">
+    <meta http-equiv="Access-Control-Allow-Origin" content="http://plf.cleos.com.cn/">
+    <title></title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="/static/plugins/jquery/jquery.v2.2.2.min.js"></script>
+    <script src="/static/js/ecos_commonjs.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="content">
+        <div class="notice_detail">
+            <h1></h1>
+            <p class="info"></p>
+            <img class="cover common_img" src="" />
+            <div class="detail"></div>
+        </div>
+        <ul class="notice_detail_list"></ul>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function (){
+        var param = {
+            "AccessToken": eosCommon.getUrlParam(window.location.search,'AccessToken'),
+            "Parameters":{
+                     "BillId":eosCommon.getUrlParam(window.location.search,'BillId'),
+                     "BillType":eosCommon.getUrlParam(window.location.search,'BillType')
+                }
+        };
+        var url = eosCommon.APP_API + "api/message/detail";
+        eosCommon.eosAjax(url, "GET", param, "json", function (result) {
+            if(result.State != 0){
+                alert(result.Message)
+            }else{
+                $("title").html(result.Data.Subject);
+                $(".notice_detail h1").html(result.Data.Abstract);
+                $(".notice_detail p.info").html(result.Data.SendTime +"　"+ result.Data.Author);
+                $(".cover").attr("src",result.Data.Cover);
+                $(".detail").html(result.Data.NoticeContent);
+                for(var key in result.Data.Attachment){
+                    var typeClass = '';
+                    if(result.Data.Attachment[key]['Format'] == ".jpg" || result.Data.Attachment[key]['Format'] == ".png" ||result.Data.Attachment[key]['Format'] == ".gif"){
+                        typeClass = 'jpg';
+                    }
+                    if(result.Data.Attachment[key]['Format'] == '.docx' || result.Data.Attachment[key]['Format'] == '.doc'){
+                        typeClass = 'doc';
+                    }
+                    if(result.Data.Attachment[key]['Format'] == '.xlsx' || result.Data.Attachment[key]['Format'] == '.xls'){
+                        typeClass = 'xlsx';
+                    }
+                    if(result.Data.Attachment[key]['Format'] == '.pdf' || result.Data.Attachment[key]['Format'] == 'xls'){
+                        typeClass = 'pdf';
+                    }
+                    $(".notice_detail_list").append(
+                        '<li><a data-name="'+result.Data.Attachment[key]['ResourceName']+'" href="'+result.Data.Attachment[key]['ResourceUrl']+'" class="clearfix">'+
+                            '<span class="icon '+ typeClass +'"></span>'+
+                            '<div>'+
+                                '<h2>'+result.Data.Attachment[key]['ResourceName']+'</h2>'+
+                                '<span class="size">'+result.Data.Attachment[key]['Size']+'k </span>'+
+                            '</div>'+
+                        '</a></li>'
+                        )
+                    
+                }
+                var ulObj = document.getElementsByClassName('notice_detail_list');
+                var liArr = ulObj[0].getElementsByTagName('li');
+                for(var i = 0;i<liArr.length;i++){
+                    var aObj = liArr[i].getElementsByTagName('a');
+                }
+            }
+        });
+    })
+</script>
+</html>

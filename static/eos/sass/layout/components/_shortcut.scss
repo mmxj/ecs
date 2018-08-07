@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/*快捷菜单图标*/
+$shortcut-images: Shortcut !default;
+@for $i from 1 through 30 {
+    .#{$shortcut-images}#{$i}{
+        background: url("../../static/plugins/tree/css/img/eos/icon/#{$i}.png") no-repeat;
+        vertical-align: top;
+        *vertical-align: middle;
+        width: 24px;
+        height: 24px;
+        line-height: 20px;
+    }
+}

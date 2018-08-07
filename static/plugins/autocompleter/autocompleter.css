@@ -1,0 +1,93 @@
+.eosAuto {
+    position: relative;
+    top:0px;
+    vertical-align: middle;
+    color: #888;
+    font-size: inherit;
+}
+
+.eosAuto input {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #888;
+    font-size: inherit;
+}
+
+.eosAuto input:focus {
+    outline: 0;
+    font-size: inherit;
+    /*width: 100%;*/
+}
+.autocompleter {
+    /*width: 100%;*/
+    width: 100%;
+    /*width: calc(100% - 20px);*/
+    background: #fff;
+    white-space:nowrap;  /*超过宽度自动省略*/
+    -moz-box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.15);
+    position: absolute;
+    /*left: 0px;*/
+    /*left: 10px;*/
+    font-size: inherit;
+    z-index: 100;
+}
+.autocompleter,
+.autocompleter-hint {
+    position: absolute;
+}
+
+.autocompleter-list {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0px;
+    text-align: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.autocompleter-item-selected {
+    background: #ffffff;
+}
+
+.autocompleter-item {
+    padding: 6px 12px;
+    color: #555;
+    cursor: pointer;
+}
+
+.autocompleter-item:hover {
+    background: #1abc9c;
+    color: #fff;
+    font-size: inherit;
+}
+
+
+.autocompleter-item span {
+    color: #bbbbbb;
+}
+
+.autocompleter-hint {
+    color: #ccc;
+    text-align: left;
+    font-weight: 400;
+    left: 5px;
+    top: -40px;
+    width: 100%;
+    padding: 12px 12px 12px 13px;
+    display: none;
+}
+
+.autocompleter-hint span {
+    color: transparent;
+}
+
+.autocompleter-hint-show {
+    display: block;
+}
+
+.autocompleter-closed {
+    display: none;
+}

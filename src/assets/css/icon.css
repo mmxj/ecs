@@ -1,0 +1,911 @@
+﻿/**
+* Copyright (C) 2016 By Canlead
+* 项目名称:易运维
+* 作者:龙周峰
+* 文件名：MainTree.css
+* 文件功能描述：左侧菜单及主框架样式
+
+* 创建标识：Canlead-EOS-20161200
+
+* 修改标识：Canlead-EOS-20161201
+* 修 改 人：
+* 修改描述：v1.0
+*/
+
+
+/*左侧菜单图标样式*/
+
+
+/*.el-menu .pIcon1_ico_open{
+  background: url(../images/icon/index-tree.png) no-repeat scroll 0 -50px transparent;
+  vertical-align:top;
+  *vertical-align:middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}*/
+
+.el-menu .pIcon1_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll 1px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+#EcosIndexTree li a.curSelectedNode span.button.pIcon1_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll 1px -51px transparent;
+  vertical-align: top;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+
+/*#EcosIndexTree li a.level1:hover span.button.pIcon1_ico_close{
+    background: url(../images/icon/new-index-tree.png) no-repeat scroll 0px -51px transparent;
+      vertical-align: top;
+      width: 32px;
+      height: 50px;
+      line-height: 50px;
+}*/
+
+.el-menu .pIcon2_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -31px -51px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon2_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -31px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon3_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -63px -51px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon3_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -63px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon4_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -96px -51px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon4_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -96px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+
+/*.el-menu .pIcon5_ico_open{
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -128px -51px transparent;
+  vertical-align:top;
+  *vertical-align:middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+  }*/
+
+.el-menu .pIcon5_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -128px -1px transparent;
+  /*background: url(../images/icon/index-tree.png) no-repeat scroll -128px 0 transparent;*/
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+#EcosIndexTree li a.curSelectedNode span.button.pIcon5_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -128px -50px transparent;
+  vertical-align: top;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon6_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -159px -51px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon6_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -159px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon7_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -190px -51px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon7_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -190px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon8_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -222px -51px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon8_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -222px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon9_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -257px -50px transparent;
+
+  /*background: url(../images/icon/index-tree.png) no-repeat scroll -256px -50px transparent;*/
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon9_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -257px -1px transparent;
+  /*background: url(../images/icon/index-tree.png) no-repeat scroll -256px 0 transparent;*/
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon10_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -287px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon10_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -287px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon11_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -320px -51px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon11_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -320px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon12_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -353px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon12_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -353px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon13_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -386px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon13_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -386px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon14_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -418px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon14_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -418px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon15_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -448px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon15_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -448px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon16_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll 0 -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon16_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon17_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -512px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon17_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -512px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon18_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -544px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon18_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -544px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon19_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll-576px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon19_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll-576px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon20_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -608px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon20_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -608px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon21_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -640px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon21_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -640px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon22_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -672px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon22_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -672px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon23_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -704px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon23_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -704px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon24_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -736px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon24_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -736px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon25_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -768px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon25_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -768px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon26_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -800px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon26_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -800px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon27_ico_open {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -832px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon27_ico_close {
+  background: url(../images/icon/new-index-tree.png) no-repeat scroll -27px -1px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon28_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -864px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon28_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -864px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon29_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -896px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon29_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -896px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon30_ico_open {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -928px -50px transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon30_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -928px 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+
+
+/*快捷菜单图标*/
+
+.button.Shortcut1_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll 0 -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut2_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll 70px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut3_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll 140px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut4_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -210px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut5_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -280px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut6_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -350px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut7_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -420px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut8_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -490px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut9_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -558px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut10_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -630px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut11_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -700px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut12_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -770px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut13_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -840px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut14_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -910px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 50px;
+  height: 44px;
+}
+
+.button.Shortcut15_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -980px -100px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut16_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll 0 -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut17_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -70px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut18_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -140px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut19_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -210px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut20_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -280px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut21_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -350px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut22_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -420px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut23_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -490px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut24_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -560px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut25_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -630px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut26_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -700px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut27_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -770px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut28_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -840px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut29_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -910px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+.button.Shortcut30_ico_close {
+  background: url(../images/icon/index-tree.png) no-repeat scroll -980px -144px transparent;
+  vertical-align: top;
+  text-align: center;
+  margin: 0 auto;
+  width: 78px;
+  height: 44px;
+}
+
+
+
+
+/*默认空白菜单图标*/
+
+.el-menu .pIcon100_ico_open {
+  background: url(../images/icon/no.png) no-repeat scroll 0 0 transparent;
+  /*background-color: #00aced;*/
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.el-menu .pIcon100_ico_close {
+  background: url(../images/icon/no.png) no-repeat scroll 0 0 transparent;
+  /*background-color: rgba(238, 238, 239,1);*/
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  line-height: 50px;
+}
+
+
+
+/*默认空白菜单图标*/
+
+.el-menu .defaulticon_ico_open {
+  background: url(../images/icon/no.png) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  margin-top: 0px;
+  line-height: 50px;
+}
+
+.el-menu .defaulticon_ico_close {
+  background: url(../images/icon/no.png) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+  width: 32px;
+  height: 50px;
+  margin-top: 0px;
+  line-height: 50px;
+}
+

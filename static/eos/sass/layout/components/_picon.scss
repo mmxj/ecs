@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+$picon-images: pIcon !default;
+@for $i from 1 through 30 {
+    .#{$picon-images}#{$i}{
+        background: url("../../static/plugins/tree/css/img/eos/icon/#{$i}.png") no-repeat;
+        vertical-align: top;
+        *vertical-align: middle;
+        width: 24px;
+        height: 24px;
+        line-height: 20px;
+    }
+}

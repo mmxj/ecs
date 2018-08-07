@@ -1,0 +1,21 @@
+@mixin fontFamily{
+    font-family: $fontFamily;
+    font-weight: $eosNo;
+    font-style: $eosNo;
+}
+@mixin aHover{
+    outline: 0;
+    text-decoration: none;
+}
+@mixin pm($num){
+    padding: $num;
+    margin: $num;
+}
+@mixin eosWidth($num){
+    width: $num;
+}
+//boder
+@mixin boder-top-bottom(){
+    border-bottom:1px solid #eeeeef;
+    border-top:1px solid #eeeeef;
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=0, width=device-width">
+		<title>APP下载</title>
+		<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+		<script src="http://github.highcharts.com/master/modules/no-data-to-display.src.js"></script>
+		<script type="text/javascript" src="./js/eosCommon.js"></script>
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<div id="container" style="width:100%;position: relative; height: 300px; margin:0 auto;z-index: 1000;"></div>
+
+	</body>
+	<script type="text/javascript">
+		$(function() {
+			//alert('111');
+			var u = navigator.userAgent;
+			var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+			var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			var timerInterval = 10;
+			var CopDatasArr = [];
+			var SplineCopDatas = [];
+			var myTimer = 0;			
+			var AccessToken = eosCommon.GetQueryString("AccessToken");
+			var TerminalEquipmentId = eosCommon.GetQueryString("TerminalEquipmentId");
+			clearInterval(myTimer);
+			var initSplineChart = function(CopDatasArr) {
+				var chart = {
+					type: 'spline',
+					animation: Highcharts.svg, // don't animate in IE < IE 10.
+					marginRight: 10,
+					events: {
+						load: function() {
+							// set up the updating of the chart each second
+							var series = this.series[0];
+							if(myTimer == 'stop') {
+								return;
+							}
+							myTimer = setInterval(function() {
+								getSplineCopDatas(series);
+
+							}, 10000);
+						}
+					}
+				};
+				var title = {
+					text: '近' + timerInterval + '分钟COP曲线图'
+				};
+				var xAxis = {
+					type: 'datetime',
+					tickPixelInterval: 80
+				};
+				var yAxis = {
+					title: {
+						text: 'COP值'
+					},
+					max: 6,
+					plotLines: [{
+						value: 0,
+						width: 1,
+						color: '#808080'
+					}]
+				};
+				var credits = {
+					enabled: false
+				};
+				var tooltip = {
+					formatter: function() {
+						return '<b>' + this.series.name + '</b><br/>' +
+							Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) + '<br/>' +
+							Highcharts.numberFormat(this.y, 2);
+					}
+				};
+				var plotOptions = {
+					area: {
+						pointStart: 2017,
+						marker: {
+							enabled: false,
+							symbol: 'circle',
+							radius: 2,
+							states: {
+								hover: {
+									enabled: true
+								}
+							}
+						}
+					}
+				};
+				var legend = {
+					enabled: false
+				};
+				var exporting = {
+					enabled: false
+				};
+				var series = [{
+					name: 'COP值',
+					data: (function() {
+						// generate an array of random data
+						var data = [],
+							i;
+						if(CopDatasArr.Data.length == 0) {
+							clearInterval(myTimer);
+							myTimer = 'stop';
+							//开始的时候暂无COP数据								
+							return data;
+						}
+						for(i = 0; i < CopDatasArr.Data.length; i++) {
+							data.push({
+								x: CopDatasArr.Data[i].Time,
+								y: CopDatasArr.Data[i].Cop
+							});
+						}
+						return data;
+					}())
+				}];
+				var json = {};
+				json.chart = chart;
+				json.credits = credits;
+				json.title = title;
+				json.tooltip = tooltip;
+				json.xAxis = xAxis;
+				json.yAxis = yAxis;
+				json.legend = legend;
+				json.exporting = exporting;
+				json.series = series;
+				json.plotOptions = plotOptions;
+				json.lang = {          
+					noData: "暂无数据"
+				}
+				json.noData = {
+					position: {},
+					attr: {},
+					style: {
+					}
+				}
+				Highcharts.setOptions({
+					global: {
+						useUTC: false
+					}
+				});
+				$('#container').highcharts(json);
+			}
+			var initHightTheme = function() {
+				Highcharts.theme = {
+					chart: {
+						backgroundColor: {
+							linearGradient: [0, 0, 500, 500],
+							stops: [
+								[0, 'rgb(255, 255, 255)'],
+								[1, 'rgb(240, 240, 255)']
+							]
+						},
+					}
+				};
+				Highcharts.setOptions(Highcharts.theme);
+			}
+			var getCopDatas = function() {
+				var param = {
+						"AccessToken": AccessToken,
+						"TerminalEquipmentId": TerminalEquipmentId, //vm.EquipmentId
+						"Minute": timerInterval
+					},
+					url = eosCommon.ENTERPRISE_API + "Api/Equipment/GetEquipmentCopData";
+				eosCommon.eosAjax(url, 'GET', param, 'json', function(result) {
+					if(result.State == 0) {
+						CopDatasArr = result.Data;				
+						initSplineChart(CopDatasArr);
+					} else {
+						//系统异常
+						alert('您的网络不给力，请稍后重试！');
+					}
+
+				});
+			}
+			var getSplineCopDatas = function(series) {
+				var param = {
+						"AccessToken": AccessToken,
+						"TerminalEquipmentId": TerminalEquipmentId //vm.EquipmentId						
+					},
+					x = 0,
+					y = 0,
+					isExceedToken = 0,
+					url = eosCommon.ENTERPRISE_API + "Api/Equipment/GetEquipmentCurrentCopData";
+				eosCommon.eosAjax(url, 'GET', param, 'json', function(result) {
+					if(result.State == 0) {
+						SplineCopDatas = result.Data;
+						x = parseInt(SplineCopDatas.CurTime);
+						y = SplineCopDatas.CurCop;
+						isExceedToken = 0;
+						//当前时刻数据
+						if(isiOS) {
+							onX5display(x, y, isExceedToken);
+						} else {
+							Android.onX5display(SplineCopDatas.CurTime, y, isExceedToken);
+						}
+						series.addPoint([x, y], true, true);
+					} else if(result.State == 10002) {
+						//token过期
+						x = 0;
+						y = 0;
+						isExceedToken = 1;
+						if(isiOS) {
+							onX5display(x, y, isExceedToken);
+						} else {
+							Android.onX5display(SplineCopDatas.CurTime, y, isExceedToken);
+						}
+					} else {
+						//系统异常
+						alert('您的网络不给力，请稍后重试！');
+					}
+
+				});
+			}
+			//.................................//
+			getCopDatas();
+		})
+	</script>
+
+</html>

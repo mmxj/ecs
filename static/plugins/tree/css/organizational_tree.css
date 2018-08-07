@@ -1,0 +1,298 @@
+.no-space-row > [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+}
+.eosOrg * {padding:0; margin:0; font-size:14px;}
+.eosOrg {margin:0; padding:0px; color:#333;}
+.eosOrg li{padding:0; margin:0; list-style:none; line-height:14px; text-align:left; white-space:nowrap; outline:0}
+.eosOrg li ul{ margin:0; padding:0px}
+.eosOrg li ul li{ margin:0; padding:0px 0px 0px 0px;}
+.eosOrg li ul li ul li{ margin:0; padding:0px;}
+
+.rMenu {z-index: 9999;position:absolute; visibility:hidden; margin-top: 5px;margin-left: 80px; text-align: left;padding: 2px;}
+.EoslistTitle{padding:0; margin:0; font-size:18px;border-bottom: 1px solid #EFEFEF;letter-spacing: 2px; text-align:center;height:48px;line-height:48px;white-space:nowrap;background: white;}     /*width: calc(100% - 40px);*/
+.EosIcon{padding:0; margin:0; font-size:14px; max-width:170px;text-overflow:ellipsis;overflow:hidden; white-space:nowrap;}     /*width: calc(100% - 40px);*/
+li ul li a .EosIcon{padding:0; margin:0; font-size:14px; max-width:150px;text-overflow:ellipsis;overflow:hidden; white-space:nowrap;}     /*width: calc(100% - 40px);*/
+li ul li ul li a .EosIcon{padding:0; margin:0; font-size:14px; max-width:130px;text-overflow:ellipsis;overflow:hidden; white-space:nowrap;}     /*width: calc(100% - 40px);*/
+
+@media screen and (min-width: 1601px) {
+	.EosIcon {max-width:200px;}
+	li ul li a .EosIcon{max-width:200px;}
+	li ul li ul li a .EosIcon{max-width:190px;}
+	}
+/*一级栏目*/
+.eosOrg li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	clear:both;
+	/*width: 245px;*/
+	cursor: pointer;
+	color: #333;
+	}
+.eosOrg li a {
+	padding-left: 0px;
+	margin: 0;
+	cursor: pointer;
+	height: 40px;
+	clear:both;
+	/*width: 245px;*/
+	width: calc(100% - 0px);
+	line-height: 43px;
+	color: #333;
+	background-color: white;
+	text-decoration: none;
+	vertical-align: top;
+	display: inline-block
+	}
+
+.eosOrg li a:hover {
+	text-decoration: underline;
+	background-color: rgba(26, 188, 156, 0.25);
+	}
+
+.eosOrg li a.curSelectedNode {
+	padding-top: 0px;
+	background-color: rgba(26, 188, 156, 0.25);
+	color: #1abc9c;
+	height: 40px;
+	line-height: 43px;
+	border: 0px #1abc9c solid;
+	opacity: 0.8;
+	}
+
+/*二级栏目*/
+.eosOrg li ul li a {
+	padding-left: 18px;
+	margin: 0;
+	cursor: pointer;
+	width: calc(100% - 0px);
+	height: 40px;
+	line-height: 43px;
+	color: #333;
+	background-color: white;
+	text-decoration: none;
+	vertical-align: top;
+	display: inline-block
+	}
+
+.eosOrg li ul li a:hover {
+	text-decoration: underline;
+	background-color: rgba(26, 188, 156, 0.25);
+	}
+
+.eosOrg li ul li a.curSelectedNode {
+	padding-top: 0px;
+	background-color: rgba(26, 188, 156, 0.25);
+	color: #1abc9c;
+	height: 40px;
+	line-height: 43px;
+	border: 0px #1abc9c solid;
+	opacity: 0.8;
+	}
+
+/*三级栏目*/
+.eosOrg li ul li ul li a {
+	padding-left: 35px;
+	margin: 0;
+	cursor: pointer;
+	width: calc(100% - 0px);
+	height: 40px;
+	line-height: 43px;
+	color: #333;
+	background-color: white;
+	text-decoration: none;
+	vertical-align: top;
+	display: inline-block
+	}
+.eosOrg li ul li ul li a:hover {
+	text-decoration: underline;
+	background-color: rgba(26, 188, 156, 0.25);
+	}
+.eosOrg li ul li ul li a.curSelectedNode {
+	padding-top: 0px;
+	background-color: rgba(26, 188, 156, 0.25);
+	color: #1abc9c;
+	height: 40px;
+	line-height: 43px;
+	border: 0px #1abc9c solid;
+	opacity: 0.8;
+	}
+
+/*四级栏目*/
+.eosOrg li ul li ul li ul li a {
+	padding-left: 50px;
+	margin: 0;
+	cursor: pointer;
+	width: calc(100% - 0px);
+	height: 40px;
+	line-height: 43px;
+	color: #333;
+	background-color: white;
+	text-decoration: none;
+	vertical-align: top;
+	display: inline-block
+	}
+.eosOrg li ul li ul li ul li a:hover {
+	text-decoration: underline;
+	background-color: rgba(26, 188, 156, 0.25);
+	}
+.eosOrg li ul li ul li ul li a.curSelectedNode {
+	padding-top: 0px;
+	background-color: rgba(26, 188, 156, 0.25);
+	color: #1abc9c;
+	height: 40px;
+	line-height: 43px;
+	border: 0px #1abc9c solid;
+	opacity: 0.8;
+	}
+.eosOrg li span {line-height:16px; margin-right:0px;clear: both;}
+.eosOrg li span.button {line-height:0; margin:0; width:32px; height:40px; display: inline-block; vertical-align:middle;
+	border:0 none; cursor: pointer;outline:none;
+	background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;}
+
+.eosOrg li span.label {
+	width:24px;
+	height:40px;
+	right:0px;
+	position: absolute;
+	display: inline-block;
+	vertical-align:middle;
+	border:0 none;
+	cursor: pointer;
+	outline:none;
+	background-color:blue;
+	background: url(img/add.png) no-repeat scroll 0 0 transparent;
+	}
+.eosOrg li span.button.chk {width:13px; height:13px; margin:10px 0px 0 0; cursor: auto}
+.eosOrg li span.button.chk.checkbox_false_full {background-position:0 0}
+.eosOrg li span.button.chk.checkbox_false_full_focus {background-position:0 -14px}
+.eosOrg li span.button.chk.checkbox_false_part {background-position:0 -28px}
+.eosOrg li span.button.chk.checkbox_false_part_focus {background-position:0 -42px}
+.eosOrg li span.button.chk.checkbox_false_disable {background-position:0 -56px}
+.eosOrg li span.button.chk.checkbox_true_full {background-position:-14px 0}
+.eosOrg li span.button.chk.checkbox_true_full_focus {background-position:-14px -14px}
+.eosOrg li span.button.chk.checkbox_true_part {background-position:-14px -28px}
+.eosOrg li span.button.chk.checkbox_true_part_focus {background-position:-14px -42px}
+.eosOrg li span.button.chk.checkbox_true_disable {background-position:-14px -56px}
+.eosOrg li span.button.chk.radio_false_full {background-position:-28px 0}
+.eosOrg li span.button.chk.radio_false_full_focus {background-position:-28px -14px}
+.eosOrg li span.button.chk.radio_false_part {background-position:-28px -28px}
+.eosOrg li span.button.chk.radio_false_part_focus {background-position:-28px -42px}
+.eosOrg li span.button.chk.radio_false_disable {background-position:-28px -56px}
+.eosOrg li span.button.chk.radio_true_full {background-position:-42px 0}
+.eosOrg li span.button.chk.radio_true_full_focus {background-position:-42px -14px}
+.eosOrg li span.button.chk.radio_true_part {background-position:-42px -28px}
+.eosOrg li span.button.chk.radio_true_part_focus {background-position:-42px -42px}
+.eosOrg li span.button.chk.radio_true_disable {background-position:-42px -56px}
+
+
+.eosOrg li span.button.switch {width:16px; height:32px}/*展开与加号的图标规格大小*/
+.eosOrg li span.button.root_open{background-position:-268px 0px}   /*只有一个节点时加号的图标*/
+.eosOrg li span.button.root_close{background-position:-228px -32px}
+
+.eosOrg li span.button.roots_open{background-position:-268px 0} /*第一个加号的图标*/
+.eosOrg li span.button.roots_close{background-position:-228px -32px}
+
+.eosOrg li span.button.center_open{background-position:-268px -0px} /*第二个或者中间的加号的图标*/
+.eosOrg li span.button.center_close{background-position:-228px -64px}
+
+.eosOrg li span.button.bottom_open{background-position:-268px -64px} /*第三个或者最后一个加号的图标*/
+.eosOrg li span.button.bottom_close{background-position:-228px -64px}
+
+.eosOrg li span.button.noline_open{background-position:-268px -72px}
+.eosOrg li span.button.noline_close{background-position:-228px -72px}
+
+.eosOrg li span.button.root_docu{ background:none;}
+.eosOrg li span.button.roots_docu{background-position:-291px 0}
+.eosOrg li span.button.center_docu{background-position:-291px -32px}  /*第一条和中间节点连接线*/
+.eosOrg li span.button.bottom_docu{background-position:-291px -64px}  /*最后一个节点连接线*/
+.eosOrg li span.button.noline_docu{ background:none;}
+
+/*文件夹图标样式与坐标*/
+.eosOrg li a.level0 span.button.ico_open {
+	margin-right: 2px;
+	background: url(img/org_icon.png) no-repeat scroll 0 0 transparent;
+	background-position: 0px 0px;
+	vertical-align: top;
+	*vertical-align: middle
+	}
+
+.eosOrg li a.level0 span.button.ico_close {
+	margin-right: 2px;
+	background: url(img/org_icon.png) no-repeat scroll 0 0 transparent;
+	background-position: -32px 0px;
+	vertical-align: top;
+	*vertical-align: middle
+	}
+
+.eosOrg li a.level1 span.button.ico_open {
+	margin-right: 2px;
+	background: url(img/org_icon.png) no-repeat scroll 0 0 transparent;
+	background-position: 0px -40px;
+	vertical-align: top;
+	*vertical-align: middle
+	}
+
+.eosOrg li a.level1 span.button.ico_close {
+	margin-right: 2px;
+	background: url(img/org_icon.png) no-repeat scroll 0 0 transparent;
+	background-position: -32px -40px;
+	vertical-align: top;
+	*vertical-align: middle
+	}
+
+.eosOrg li a.level2 span.button.ico_open {
+	margin-right: 2px;
+	background: url(img/org_icon.png) no-repeat scroll 0 0 transparent;
+	background-position: 0px -80px;
+	vertical-align: top;
+	*vertical-align: middle
+	}
+
+.eosOrg li a.level2 span.button.ico_close {
+	margin-right: 2px;
+	background: url(img/org_icon.png) no-repeat scroll 0 0 transparent;
+	background-position: -32px -80px;
+	vertical-align: top;
+	*vertical-align: middle
+	}
+
+.eosOrg li a.level3 span.button.ico_open {
+	margin-right: 2px;
+	background: url(img/org_icon.png) no-repeat scroll 0 0 transparent;
+	background-position: 0px -120px;
+	vertical-align: top;
+	*vertical-align: middle
+	}
+
+.eosOrg li a.level3 span.button.ico_close {
+	margin-right: 2px;
+	background: url(img/org_icon.png) no-repeat scroll 0 0 transparent;
+	background-position: -32px -120px;
+	vertical-align: top;
+	*vertical-align: middle
+	}
+
+.eosOrg li a.level4 span.button.ico_open {
+	margin-right: 2px;
+	background: url(img/org_icon.png) no-repeat scroll 0 0 transparent;
+	background-position: 0px -120px;
+	vertical-align: top;
+	*vertical-align: middle
+	}
+
+.eosOrg li a.level4 span.button.ico_close {
+	margin-right: 2px;
+	background: url(img/org_icon.png) no-repeat scroll 0 0 transparent;
+	background-position: -32px -120px;
+	vertical-align: top;
+	*vertical-align: middle
+	}
+
+.eosOrg li span.button.ico_docu{margin-right:2px; background-position:-180px -64px; vertical-align:top; *vertical-align:middle}
+.eosOrg li span.button.edit {margin-right:2px; background-position:-180px -32px; vertical-align:top; *vertical-align:middle}
+.eosOrg li span.button.remove {margin-right:2px; background-position:-180px -64px; vertical-align:top; *vertical-align:middle}
+
+ul.tmpTargetzTree {background-color:#FFE6B0; opacity:0.8; filter:alpha(opacity=80)}
+.eosOrg li span.demoIcon{width: 24px;}

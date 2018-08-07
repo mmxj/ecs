@@ -1,0 +1,90 @@
+  .objs {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    ul.lists {
+      position: relative;
+      background: #d1e3e2;
+      padding-left: 0;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      overflow-y: auto;
+      &:hover {
+        cursor: pointer;
+      }
+      & li {
+        padding: 10px;
+        width: 100%;
+        position: relative;
+        .left_pic img {
+          width: 60px;
+          height: 40px;
+        }
+      }
+      .right_info {
+        margin-left: 10px;
+        /*width: 100%;*/
+        .EquipmentAlias span {
+          max-width: 124px;
+          /*width: 100%;*/
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          text-align: left;
+          color: #000;
+        }
+      }
+      .onlineClass {
+        color: #2ECC71;
+      }
+      .state_icon i {
+        font-size: 18px;
+      }
+      .commonIcoColor {
+        color: #97bebc;
+      }
+      .equipmentOperates {
+        position: absolute;
+        right: 10px;
+        bottom: 8px;
+        & a {
+          cursor: pointer;
+          i {
+            font-size: 16px;
+          }
+        }
+        .text-pencil {
+          color: #1abc9c;
+        }
+        .text-trash-o {
+          color: #ff3f4e;
+        }
+      }
+      .text-trash-o i, .text-pencil i {
+        font-size: 24px!important;
+      }
+      .active {
+        background: #fff;
+      }
+    }
+    .operates {
+      width: 100%;
+      position: absolute;
+      height: 60px;
+      bottom: 0;
+      background: #d1e3e2;
+      .operatesBtns {
+        width: 100%;
+        .btn_wrap {
+          padding: 0 39px;
+          margin-left: 22px;
+          margin-top: 12px;
+        }
+      }
+    }
+    .bdb {
+      border-bottom: 1px solid #fff;
+    }
+  }

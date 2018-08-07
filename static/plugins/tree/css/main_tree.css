@@ -1,0 +1,956 @@
+/**
+* Copyright (C) 2016 By Canlead
+* 项目名称:易运维
+* 作者:龙周峰
+* 文件名：MainTree.css
+* 文件功能描述：左侧菜单及主框架样式
+
+* 创建标识：Canlead-EOS-20161200
+
+* 修改标识：Canlead-EOS-20161201
+* 修 改 人：
+* 修改描述：v1.0
+*/
+
+/*左侧菜单图标样式*/
+/*.el-menu .pIcon1_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll 0 -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+}*/
+
+.el-menu .pIcon1_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll 1px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+}
+#EcosIndexTree li a.curSelectedNode span.button.pIcon1_ico_close {
+    background: url(img/new-index-tree.png) no-repeat scroll 1px -51px transparent;
+    vertical-align: top;
+    width: 32px;
+    height: 50px;
+    line-height: 50px;
+}
+/*#EcosIndexTree li a.level1:hover span.button.pIcon1_ico_close{
+	 	background: url(img/new-index-tree.png) no-repeat scroll 0px -51px transparent;
+	    vertical-align: top;
+	    width: 32px;
+	    height: 50px;
+	    line-height: 50px;
+}*/
+.el-menu .pIcon2_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -31px -51px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon2_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -31px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon3_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -64px -51px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon3_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -64px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon4_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -96px -51px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon4_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -96px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+/*.el-menu .pIcon5_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -128px -51px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}*/
+.el-menu .pIcon5_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -128px -1px transparent;
+	/*background: url(img/index-tree.png) no-repeat scroll -128px 0 transparent;*/
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+#EcosIndexTree li a.curSelectedNode span.button.pIcon5_ico_close {
+    background: url(img/new-index-tree.png) no-repeat scroll -128px -50px transparent;
+    vertical-align: top;
+    width: 32px;
+    height: 50px;
+    line-height: 50px;
+}
+.el-menu .pIcon6_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -159px -51px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon6_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -159px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon7_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -190px -51px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon7_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -190px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon8_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -222px -51px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon8_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -222px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon9_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -384px -50px transparent;
+	
+	/*background: url(img/index-tree.png) no-repeat scroll -256px -50px transparent;*/
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon9_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -384px -1px transparent;
+	/*background: url(img/index-tree.png) no-repeat scroll -256px 0 transparent;*/
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon10_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -254px  -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon10_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -254px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon11_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -352px -51px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon11_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -352px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon12_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -318px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon12_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -318px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon13_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -418px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon13_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -418px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon14_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -416px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon14_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -416px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon15_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -448px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon15_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -448px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon16_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll 0 -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon16_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll 0 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon17_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -512px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon17_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -512px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon18_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -544px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon18_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -544px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon19_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll-576px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon19_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll-576px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon20_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -608px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon20_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -608px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon21_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -640px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon21_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -640px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon22_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -672px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon22_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -672px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon23_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -704px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon23_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -704px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon24_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -736px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon24_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -736px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon25_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -768px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon25_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -768px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon26_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -800px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon26_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -800px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon27_ico_open{
+	background: url(img/new-index-tree.png) no-repeat scroll -832px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon27_ico_close{
+	background: url(img/new-index-tree.png) no-repeat scroll -27px -1px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon28_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -864px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon28_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -864px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon29_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -896px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon29_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -896px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+.el-menu .pIcon30_ico_open{
+	background: url(img/index-tree.png) no-repeat scroll -928px -50px transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon30_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -928px 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+
+/*快捷菜单图标*/
+.button.Shortcut1_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll 0 -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut2_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll 70px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut3_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll 140px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut4_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -210px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut5_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -280px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut6_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -350px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut7_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -420px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut8_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -490px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut9_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -558px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut10_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -630px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut11_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -700px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut12_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -770px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut13_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -840px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut14_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -910px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 50px;
+	height: 44px;
+	}
+.button.Shortcut15_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -980px -100px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut16_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll 0 -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut17_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -70px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut18_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -140px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut19_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -210px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut20_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -280px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut21_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -350px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut22_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -420px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut23_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -490px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut24_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -560px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut25_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -630px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut26_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -700px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut27_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -770px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut28_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -840px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut29_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -910px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+.button.Shortcut30_ico_close{
+	background: url(img/index-tree.png) no-repeat scroll -980px -144px transparent;
+	vertical-align:top;
+	text-align: center;
+	margin: 0 auto;
+	width: 78px;
+	height: 44px;
+	}
+
+
+
+/*默认空白菜单图标*/
+.el-menu .pIcon100_ico_open{
+	background: url(img/eos/no.png) no-repeat scroll 0 0 transparent;
+	/*background-color: #00aced;*/
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+.el-menu .pIcon100_ico_close{
+	background: url(img/eos/no.png) no-repeat scroll 0 0 transparent;
+	/*background-color: rgba(238, 238, 239,1);*/
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	line-height: 50px;
+	}
+
+
+/*默认空白菜单图标*/
+#EcosIndexTree li span.button.defaulticon_ico_open{
+	background: url(img/eos/no.png) no-repeat scroll 0 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	margin-top: 0px;
+	line-height: 50px;
+	}
+#EcosIndexTree li span.button.defaulticon_ico_close{
+	background: url(img/eos/no.png) no-repeat scroll 0 0 transparent;
+	vertical-align:top;
+	*vertical-align:middle;
+	width: 32px;
+	height: 50px;
+	margin-top: 0px;
+	line-height: 50px;
+	}
+
+#EcosIndexTree li span.button.icon02_ico_docu{background: url(img/diy/2.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.icon03_ico_docu{background: url(img/diy/3.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.icon04_ico_docu{background: url(img/diy/4.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.icon05_ico_docu{background: url(img/diy/5.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.icon06_ico_docu{background: url(img/diy/6.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.icon07_ico_docu{background: url(img/diy/7.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.icon08_ico_docu{/*background: url(img/diy/8.png) no-repeat scroll 0 0 transparent;*/ vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.icon09_ico_docu{background: url(img/diy/9.png) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree {color:#333;padding:0; margin:0; }
+#EcosIndexTree li{list-style:none;white-space:nowrap;text-align:left;}     /*white-space:nowrap;强制不换行*/
+#EcosIndexTree li ul{ margin-right:0px; }
+#EcosIndexTree li ul.line{ background:url(img/line_conn.gif) 0 0 repeat-y;}
+#EcosIndexTree .leftTreeTitle {padding:0; margin:0; font-size:14px; text-indent:10px;}
+#EcosIndexTree .leftTreeTitle:hover {padding:0; margin:0; font-size:14px; text-indent:5px;color: #fff;}
+
+#EcosIndexTree li {cursor:pointer; text-decoration:none; }
+#EcosIndexTree li a {width:100%;height:50px;padding-left:0px;margin-left: 0px; cursor:pointer; text-decoration:none; }
+#EcosIndexTree li a:hover {text-decoration:none;/*background-color: rgba(26, 188, 156,0.8);*/color: #1abc9c}
+#EcosIndexTree li a.curSelectedNode {height:50px;margin:0px;}
+
+
+#EcosIndexTree li span.button {width:32px; display: inline-block;cursor: pointer;outline:none;background-repeat:no-repeat; background-attachment: scroll;background-image:url("left_menuForOutLookindex.png"); }
+
+
+#EcosIndexTree li a.level0 {outline:none;display: inline-block;background-color: rgba(31, 45, 61,0.8); color: #ffffff; height: 50px; line-height:30px;}
+#EcosIndexTree li a.level0:hover {display: inline-block;background-color: rgba(31, 45, 61,0.8); color: #ffffff }
+#EcosIndexTree li a.level0.curSelectedNode {display: inline-block;color:#fff;background-color: rgba(31, 45, 61,0.8);}
+#EcosIndexTree li a.level0 span {display: inline-block;font-family: "Microsoft YaHei",Arial,"Helvetica",sans-serif;}
+
+
+#EcosIndexTree li a.level1 {display: inline-block;/*padding-left:20px;*/ border-top: 0px solid rgba(0,0,0,0.03);background-color: rgba(31, 45, 61,1);}
+#EcosIndexTree li a.level1:hover {display: inline-block;/*background-image: url("img/side_menu_bg.png");*/ color: #1abc9c}
+#EcosIndexTree li a.level1.curSelectedNode {
+	display: inline-block;
+	color: #1abc9c
+	/*background-color: rgba(26, 188, 156,0.8);*/
+	/*background-image: url("img/side_menu_bg.png");*/
+	}
+#EcosIndexTree li a.level1 span {display: inline-block;font-family: "Microsoft YaHei",Arial,"Helvetica",sans-serif;}
+
+#EcosIndexTree li a.level2 {display: inline-block; height:50px;line-height:20px;margin-top:0px;padding-left:20px; border-top: 1px solid rgba(0,0,0,0.05);background-image:url("img/sub2bg.png");}
+#EcosIndexTree li a.level2:hover {display: inline-block;color: #1abc9c;background-color:transparent!important;}
+#EcosIndexTree li a.level2.curSelectedNode {display: inline-block;color:#fff;background-image:url("img/arrow.png");}
+#EcosIndexTree li a.level2 span {display: inline-block;font-family: "Microsoft YaHei",Arial,"Helvetica",sans-serif;}
+
+
+/*#EcosIndexTree li span.button {z-index:99999;display: inline-block;background-image:url("left_menuForOutLookindex.png"); *background-image:url("left_menuForOutLookindex.gif")}*/
+#EcosIndexTree li span.button.switch {float:right;width: 50px; height:50px; display: inline-block; z-index: 999999}
+
+
+#EcosIndexTree li span.button.noline_open {background-position: -50px 0;}
+#EcosIndexTree li span.button.noline_close {background-position: 0 -50px;}
+
+#EcosIndexTree li span.button.switch.level0 {float:right;width: 0px; height:50px; display: inline-block;z-index: 9999}
+#EcosIndexTree li span.button.noline_open.level0 {background-position: 0 -50px;}
+#EcosIndexTree li span.button.noline_close.level0 {background-position: -50px 0;}
+
+#EcosIndexTree li span.button.switch.level1 {float:right;width: 50px; height:50px;position: absolute;right: 0; display: inline-block;z-index: 9999}
+#EcosIndexTree li span.button.noline_open.level1 {background-position: 0 -50px;}
+#EcosIndexTree li span.button.noline_close.level1 {background-position: -50px 0;}
+
+@media (min-width: 100px) and (max-width: 400px) {
+	#EcosIndexTree li span.button.switch{
+		display: none !important;
+		}
+	}
+
+/*
+#EcosIndexTree li span.button.chk {width:30px; height:31px; margin:0 30px 0 0; cursor: auto}
+#EcosIndexTree li span.button.chk.checkbox_false_full {background-position:0 0}
+#EcosIndexTree li span.button.chk.checkbox_false_full_focus {background-position:0 -14px}
+#EcosIndexTree li span.button.chk.checkbox_false_part {background-position:0 -28px}
+#EcosIndexTree li span.button.chk.checkbox_false_part_focus {background-position:0 -42px}
+#EcosIndexTree li span.button.chk.checkbox_false_disable {background-position:0 -56px}
+#EcosIndexTree li span.button.chk.checkbox_true_full {background-position:-14px 0}
+#EcosIndexTree li span.button.chk.checkbox_true_full_focus {background-position:-14px -14px}
+#EcosIndexTree li span.button.chk.checkbox_true_part {background-position:-14px -28px}
+#EcosIndexTree li span.button.chk.checkbox_true_part_focus {background-position:-14px -42px}
+#EcosIndexTree li span.button.chk.checkbox_true_disable {background-position:-14px -56px}
+#EcosIndexTree li span.button.chk.radio_false_full {background-position:-28px 0}
+#EcosIndexTree li span.button.chk.radio_false_full_focus {background-position:-28px -14px}
+#EcosIndexTree li span.button.chk.radio_false_part {background-position:-28px -28px}
+#EcosIndexTree li span.button.chk.radio_false_part_focus {background-position:-28px -42px}
+#EcosIndexTree li span.button.chk.radio_false_disable {background-position:-28px -56px}
+#EcosIndexTree li span.button.chk.radio_true_full {background-position:-42px 0}
+#EcosIndexTree li span.button.chk.radio_true_full_focus {background-position:-42px -14px}
+#EcosIndexTree li span.button.chk.radio_true_part {background-position:-42px -28px}
+#EcosIndexTree li span.button.chk.radio_true_part_focus {background-position:-42px -42px}
+#EcosIndexTree li span.button.chk.radio_true_disable {background-position:-42px -56px}*/
+
+#EcosIndexTree li span.button.switch {width:18px; height:31px}
+#EcosIndexTree li span.button.root_open{background-position:-92px -54px}
+#EcosIndexTree li span.button.root_close{background-position:-74px -54px}
+#EcosIndexTree li span.button.roots_open{background-position:-92px 0}
+#EcosIndexTree li span.button.roots_close{background-position:-74px 0}
+#EcosIndexTree li span.button.center_open{background-position:-92px -18px}
+#EcosIndexTree li span.button.center_close{background-position:-74px -18px}
+#EcosIndexTree li span.button.bottom_open{background-position:-92px -36px}
+#EcosIndexTree li span.button.bottom_close{background-position:-74px -36px}
+#EcosIndexTree li span.button.noline_open{background-position:-92px -72px}
+#EcosIndexTree li span.button.noline_close{background-position:-74px -72px}
+#EcosIndexTree li span.button.root_docu{ background:none;}
+#EcosIndexTree li span.button.roots_docu{background-position:-56px 0}
+#EcosIndexTree li span.button.center_docu{background-position:-56px -18px}
+#EcosIndexTree li span.button.bottom_docu{background-position:-56px -36px}
+#EcosIndexTree li span.button.noline_docu{ background:none;}
+
+#EcosIndexTree li span.button.ico_open{margin-right:2px; background-position:-110px -16px; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.ico_close{margin-right:2px; background-position:-110px 0; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.ico_docu{margin-right:2px; background-position:-110px -32px; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.edit {margin-right:2px; background-position:-110px -48px; vertical-align:top; *vertical-align:middle}
+#EcosIndexTree li span.button.remove {margin-right:2px; background-position:-110px -64px; vertical-align:top; *vertical-align:middle}
+
+#EcosIndexTree li span.button.ico_loading{margin-right:2px; background:url(img/loading.gif) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+
+#EcosIndexTree ul.tmpTargetzTree {background-color:#FFE6B0; opacity:0.8; filter:alpha(opacity=80)}
+
+#EcosIndexTree span.tmpzTreeMove_arrow {width:30px; height:30px; display: inline-block; padding:0; margin:2px 0 0 1px; border:0 none; position:absolute;
+	background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
+	background-position:-110px -80px; background-image:url("img/zTreeStandard.png"); *background-image:url("img/zTreeStandard.gif")}
+
+#EcosIndexTree .zTreeDragUL {margin:0; padding:0; position:absolute; width:auto; height:auto;overflow:hidden; background-color:#cfcfcf; border:1px #00B83F dotted; opacity:0.8; filter:alpha(opacity=80)}
+#EcosIndexTree .zTreeMask {z-index:10000; background-color:#cfcfcf; opacity:0.0; filter:alpha(opacity=0); position:absolute}
+
+/* level style*/
+/*#EcosIndexTree li span.button.level0 {
+	display:none;
+}
+#EcosIndexTree li ul.level0 {
+	padding:0;
+	background:none;
+}*/
