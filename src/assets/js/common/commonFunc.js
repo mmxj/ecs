@@ -526,14 +526,15 @@ TreeNodeTools.setTreeNodeAuthByName = (name) => {
 	console.log('权限设置失败，页面名称：', name)
 }
 
-let Operator = {}
+let Operator = {};//操作员
+//初始化操作员数据
 Operator.eosOperDataHandle = function(myData) {
 		myData = myData||JSON.parse(JSON.parse(Storage.get('treeNode')).OperateSet);
 		// console.log(myData)
 		let isEx = Storage.get('IsExperienceProject');//判断是否体验项目
 		let IsSelf = Storage.get('IsSelfProject');//判断是否自建项目
-		isEx = isEx?parseInt(isEx):isEx
-		IsSelf = IsSelf?parseInt(IsSelf):IsSelf
+		isEx = isEx?parseInt(isEx):isEx;
+		IsSelf = IsSelf?parseInt(IsSelf):IsSelf;
 
 		let operatorData = {
 			create: myData['CREATE'],
@@ -554,7 +555,7 @@ Operator.eosOperDataHandle = function(myData) {
 		}
 		// console.log(operatorData)
 
-		if(isEx||IsSelf!=1){
+		if(isEx||IsSelf!=1){//isEx代表是否是设备或体验项目
 			let obj = {}
 			for (let index in operatorData) {
 				obj[index] = 0
@@ -568,8 +569,8 @@ Operator.eosOperDataHandle = function(myData) {
 	}
 
 Operator.operateRoleFilter = function(isEx,isSelf){
-	let IsAdmin = Storage.get('IsAdmin')
-	let IsProjectAdmin = Storage.get('IsProjectAdmin')
+	let IsAdmin = Storage.get('IsAdmin');//是否是管理员
+	let IsProjectAdmin = Storage.get('IsProjectAdmin') //是项目创建者
 	let EntitySort = Storage.get('EntitySort')
 	// console.log(IsAdmin,IsProjectAdmin,EntitySort,isEx)
 	if(EntitySort==2 && (IsAdmin==1||IsProjectAdmin==1)) return true
@@ -577,7 +578,6 @@ Operator.operateRoleFilter = function(isEx,isSelf){
 	if(isSelf==0) return false //只要是体验项目或设备,一律不显示编辑按钮
 	if(IsAdmin==1||IsProjectAdmin==1) return true
 	// if(EntitySort==2 && (IsAdmin==1||IsProjectAdmin==1)) return true
-	
 	return false	
 }
 

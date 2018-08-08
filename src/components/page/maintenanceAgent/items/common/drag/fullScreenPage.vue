@@ -838,6 +838,7 @@
     },
     mounted() {
       var objects = this.getRequest();
+
       for(var key in objects) {
         if(key == 'IsEquipment') {
           this.IsEquipment = objects[key];

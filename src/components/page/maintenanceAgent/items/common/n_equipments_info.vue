@@ -65,22 +65,31 @@
           <!--显示对应的列表end-->
         </el-row>
         <!--左部列表end-->
-
+        <!--右侧显示 start-->
         <div v-if="get_currentViewTab_data=='equiObjist'" class="ovh right_c" style="margin-top: 15px;">
+          <!--右侧上方导航栏start-->
           <div id="drag_wrap">
             <div class="drag_panel_header">
               <div class="funLists">
+                <!--所有的数据都来自mapGetters-->
+
+                <!--导航栏上方左侧刷新频率start-->
+                <!--有当前数据 且不是当前设置？-->
                 <div v-show="(!get_curr_setting)&& get_curr_isHasData" id="freshTimeSetting" class="clearfix">
                   <div class="timerSetting pull-left"> <span style="" class="freshTimeSettingSpan">刷新频率：</span>
                     <span class="freshTimeSettingDataSpan">{{get_freshTime_Data.Rate}}</span>
                     <span style="padding: 0 5px;" class="freshTimeSettingSpan">秒</span>
+                    <!--按角色显示 isShowDebugBtnByRole_PJ 按钮 init中设置-->
                     <span v-if="isShowDebugBtnByRole_PJ" style="border: 1px solid #E2E6E9; " class="btn_wrap">
                         <button style="margin: 0px;"  @click='freshTimeSetting()' id="btn_t" type="button" class="btn fullScreen"  >
                             <i class="fa fa-cog"></i>
                         </button>
                     </span>
+
                   </div>
                 </div>
+                <!--导航栏上方左侧刷新频率end-->
+                <!--导航栏上方功能标签start-->
                 <ul v-if="get_curr_setting && get_curr_isHasData" class="drag_funtion_list clearfix" style="width: 100%;">
                   <li class="pull-left"> <img draggable="true" title="图片" class="img" src="static/css/images/new_drag/1.png" id="icon_upLoadImg" /> </li>
                   <li class="pull-left"> <img draggable="true" title="文本" class="img" src="static/css/images/new_drag/2.png" id="icon_label" /> </li>
@@ -97,54 +106,66 @@
                     <li class="pull-right"> <img @click="saveAllDragDatas()" title="保存" class="img" src="static/css/images/new_drag/7.png" id="icon_save" /> </li>
                   </ul>
                 </ul>
+                <!--导航栏上方功能标签end-->
                 <!--&& propsData.IsSelfProject==1-->
+                <!--导航栏上方右侧编辑按钮start-->
+                <!--返回上一页start-->
                 <div v-if="(!get_curr_setting)" class="reback_btn pull-right" style="margin-left: 30px;height: 32px; margin-top: 10px;padding: 0px 15px; padding-left:30px;border-left: 1px solid #D1E3E2;">
                   <el-button class='fr' size='small' style='' @click='btnReturn'> <i class="fa fa-mail-reply-all mr5"></i>返回</el-button>
                 </div>
+                <!--返回上一页end-->
                 <!--&& propsData.IsSelfProject==1-->
+                <!--显示配置按钮start-->
                 <ul v-if="(!get_curr_setting) && get_curr_isHasData && isShowDebugBtnByRole_PJ" class="pull-right" style="padding: 12px 0;margin-bottom: 0;">
                   <span class="pull-left btn_wrap">
                     <button style="padding-top: 3px; padding-bottom: 3px;font-size: 12px;" @click='comeToEdit()' id="btnInsert" type="button" class="btn fullScreen">
                         <i style="margin-left: 0;" class="fa  fa-cog m-r-5"></i>配置
                     </button> 
                   </span>
+                  <!--全屏显示start-->
                   <span class="pull-left btn_wrap">
                     <button style="font-size: 12px;padding-top: 3px; padding-bottom: 3px;margin-right: 0;"  @click='intoFullScreen()' id="btn_t" type="button" class="btn fullScreen"  >
                         <i class="fa fa-arrows"></i>
                     </button>
-                </span>
+                 </span>
+                  <!--全屏显示end-->
                 </ul>
+                <!--显示配置按钮end-->
+                <!--导航栏上方右侧编辑按钮end-->
               </div>
             </div>
           </div>
-
+          <!--右侧上方导航栏end-->
+          <!--右侧下方显示start-->
           <div class="main_contents_wrap" style="position: absolute;width: 100%; top: 50px;bottom: 15px; ">
+            <!--右侧内容区start-->
             <div class="el_mainContent" ref='indexContent' style='height:100%;position: relative;top: 0; bottom: 0;border: 1px solid rgb(209, 227, 226);' v-loading='get_dragDataState.isDragDetalLoading'>
+
               <div v-if="(!get_curr_setting) && (!get_curr_isPreview)&& get_curr_isHasData" class="drag_panel_content" style="position: relative;">
                 <div class="noDataimg"> <img src="static/css/images/drag/noSettingPage.png" />
                   <p>未配置显示界面</p>
                 </div>
               </div>
+
               <div v-if="(!get_curr_setting) && (!get_curr_isPreview)&& (!get_curr_isHasData)" class="drag_panel_content" style="position: relative;">
                 <div class="noDataimg"> <img src="static/css/images/drag/noSettingPage.png" />
                   <p>不存在自定义场景</p>
                 </div>
               </div>
+              <!--有当前预览数据显示start-->
               <div v-if="get_curr_isPreview && get_curr_isHasData" class="drag_panel_content droptarget" style="position: relative;">
+
                 <div v-bind:class="{bgC:get_curr_setting}" class="drag_region">
+                  <!--拖拽组件 查看get_upLoad_img_data设置的地方  只负责显示-->
                   <common-drag v-for="(item,index) in get_upLoad_img_data" :propsData="item" :key="item.refs" ref="wraps_upLoadImg">
                     <div class="content" style="position: relative;">
                       <div>
                         <h2 class="typeTips" v-if="!item.editData.imgUrl">请先上传图片</h2> <img v-if="item.editData.imgUrl" style="margin: 0 auto; width: 100%; height: 100%;" :src="item.editData.imgUrl" class="avatar" /> </div>
                     </div>
                   </common-drag>
-                  <common-drag v-for="(item,index) in get_label_data" :propsData="item" :key="item.refs" ref="wraps_label">
-                    <div class="content content_W">
-                      <div class="subContent">
-                        <common-label :item="item"></common-label>
-                      </div>
-                    </div>
-                  </common-drag>
+                  <!--拖拽组件-->
+
+                  <!--拖拽图表显示start组件-->
                   <common-drag v-for="(item,index) in get_chart_data" :propsData="item" :key="item.refs" ref="wraps_chart">
                     <div class="content content_W">
                       <div class="subContent">
@@ -152,6 +173,19 @@
                       </div>
                     </div>
                   </common-drag>
+                  <!--拖拽图表显示end组件-->
+
+                  <!--拖拽文本显示组件-->
+                  <common-drag v-for="(item,index) in get_label_data" :propsData="item" :key="item.refs" ref="wraps_label">
+                    <div class="content content_W">
+                      <div class="subContent">
+                        <common-label :item="item"></common-label>
+                      </div>
+                    </div>
+                  </common-drag>
+                  <!--拖拽文本显示组件-->
+
+                  <!--拖拽仪表盘显示组件start-->
                   <common-drag v-for="(item,index) in get_dashboard_data" :propsData="item" :key="item.refs" ref="wraps_dashboard">
                     <div class="content content_W">
                       <div class="subContent">
@@ -160,6 +194,9 @@
                       </div>
                     </div>
                   </common-drag>
+                  <!--拖拽仪表盘显示组件end-->
+
+                  <!--拖拽数据块显示组件start-->
                   <common-drag v-for="(item,index) in get_datablock_data" :propsData="item" :key="item.refs" ref="wraps_datablock">
                     <div class="content content_W">
                       <div class="subContent">
@@ -167,6 +204,8 @@
                       </div>
                     </div>
                   </common-drag>
+                  <!--拖拽数据块显示组件end-->
+
                   <common-drag v-for="(item,index) in get_datastate_data" :propsData="item" :key="item.refs" ref="wraps_datastate">
                     <div class="content content_W">
                       <div class="subContent">
@@ -174,10 +213,13 @@
                       </div>
                     </div>
                   </common-drag>
+
                   <common-dialog v-if="get_ctrData.dialogVisible"></common-dialog>
                 </div>
               </div>
+              <!--有当前预览数据显示end-->
             </div>
+            <!--右侧内容区end-->
             <edit_uploadimg v-for="(item,index) in get_upLoad_img_data" :propsData="item" :key="item.refs" :currentkey="index">
             </edit_uploadimg>
             <edit_label v-for="(item,index) in get_label_data" :propsData="item" :key="item.refs" :currentkey="index">
@@ -191,7 +233,10 @@
             <edit_datastate v-for="(item,index) in get_datastate_data" :propsData="item" :key="item.refs" :currentkey="index">
             </edit_datastate>
           </div>
+          <!--右侧下方显示end-->
         </div>
+
+        <!--右侧显示 end-->
         <equiTab style="height: 100%;" v-if="get_currentViewTab_data=='equiList'" :equipmentData="equiTabData">
         </equiTab>
 
@@ -269,7 +314,7 @@ export default {
       ProjectLogo: '',
       defaultPro_img: 'static/css/img/default_porject_bg.png',
       /**********************/
-      AccessToken: eosCommon.storage.get("AccessToken"),
+      AccessToken: eosCommon.storage.get("AccessToken"), //获取当前toker
       tid: null,
       CompanyId: '',
       ProjectId: '',
@@ -333,16 +378,16 @@ export default {
   },
   components: {
     equiObjist,//左侧场景列表components/common/equipment_objlist
-    equiList,//
-    equiTab,
-    commonDrag,
-    edit_uploadimg,
-    edit_label,
-    edit_chart,
-    edit_datablock,
-    commonChart,
-    commonDatablock,
-    edit_dashboard,
+    equiList,//左侧设备列表
+    equiTab, //未知 设备管理的一部分
+    commonDrag, //拖拉组件
+    edit_uploadimg,//上传图片
+    edit_label, //标题
+    edit_chart, //图表
+    edit_datablock, //数据块
+    commonChart, //通用表
+    commonDatablock, //通用数据块
+    edit_dashboard, //指针
     commonDashboard,
     commonLabel,
     edit_datastate,
@@ -452,6 +497,15 @@ export default {
     }
   },
   props: ['propsData'],
+  // projectData: { //传递到子组件的数据
+  //   ProjectId: this.$route.params.ProjectId,//项目id
+  //   ProjectName: this.$route.params.ProjectName,//项目名称
+  //   currentView: '',//当前视图
+  //   IsLocked: this.$route.params.IsLocked,//上锁的
+  //   IsExperienceProject: this.$route.params.IsExperienceProject,//体验项目
+  //   IsSelfProject: this.$route.params.IsSelfProject, //
+  //   EquipmentId: '' //设备
+  // },
   methods: {
     ...mapMutations({
       gET_EQUIPMENT_DATA: 'GET_EQUIPMENT_DATA',//获取设备数据
@@ -499,17 +553,18 @@ export default {
       window.open("/#/full_page_?TargetId=" + this.get_curr_TargetId + '&IsEquipment=false')
     },
     freshTimeSetting() {
+
       let vm = this;
-      vm.$prompt('刷新时间(秒):', '设置刷新频率', {
+      vm.$prompt('刷新时间(秒):', '设置刷新频率', { //修改样式的位置不知在哪 user.less？等看到其他messagebox在看看引用的是不是同一个样式
         confirmButtonText: '确定',
         cancelButtonText: '取消',
         inputPattern: /^[5-9]$|^[1-9]\d{1,2}$|1000$/,
-        inputValue: vm.get_freshTime_Data.Rate,
+        inputValue: vm.get_freshTime_Data.Rate,//获取默认的值
         inputErrorMessage: '刷新时间不能为空且为不小于5且不大于1000的整数'
       }).then(({
         value
       }) => {
-        vm.SetAssemblageDataRate(value);
+        vm.SetAssemblageDataRate(value); //设置该值
       }).catch(() => {
         this.$message({
           type: 'info',
@@ -517,7 +572,7 @@ export default {
         });
       });
     },
-    SetAssemblageDataRate(val) {
+    SetAssemblageDataRate(val) { //提交刷新频率的修改
       let vm = this;
       let param = {
         "AccessToken": vm.AccessToken,
@@ -528,8 +583,10 @@ export default {
       };
       let url = eosCommon.ENTERPRISE_API + "api/Assemblage/SetAssemblageDataRate";
       eosCommon.eosAjax(url, "POST", param, "json", function(result) {
+        // eosCommon.checkCode 检查状态码 返回正确
         if (eosCommon.checkCode(result.State, result.Message)) {
           vm.freshData.hasMakeFreshTime = !vm.freshData.hasMakeFreshTime;
+
           vm.$message({
             type: 'success',
             message: '设置成功！'
@@ -1504,14 +1561,16 @@ export default {
       this.equiListData.currentView = listName;
       this.toggleTabs(listName, false);
     },
-    initData() {
+    initData() { //初始化数据
       let vm = this;
-      let isEx = vm.propsData.IsExperienceProject
-      let isSelf = vm.propsData.IsSelfProject
-      vm.isShowDebugBtnByRole_PJ = FUNC.operator.operateRoleFilter(isEx, isSelf);
-      vm.uPDATE_EXPOSELF({
+      let isEx = vm.propsData.IsExperienceProject;
+      let isSelf = vm.propsData.IsSelfProject;
+
+      vm.isShowDebugBtnByRole_PJ = FUNC.operator.operateRoleFilter(isEx, isSelf);//通用函数里角色过滤 是否显示按钮
+      vm.uPDATE_EXPOSELF({ //设置是否有权限
         expOself: vm.isShowDebugBtnByRole_PJ
       });
+
       vm.ProjectId = vm.propsData.ProjectId;
       vm.equiListData.ProjectId = vm.propsData.ProjectId
       vm.equiListData.ProjectName = vm.propsData.ProjectName
@@ -1565,7 +1624,7 @@ export default {
     vm.initData();
     setTimeout(() => {
       vm.dragListener();
-    }, 100);
+  }, 100);
   },
   destroyed() {
     let vm = this;

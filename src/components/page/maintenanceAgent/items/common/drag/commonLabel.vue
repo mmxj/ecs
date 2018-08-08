@@ -93,10 +93,10 @@
       Styles() {
         let vm = this;
         return `font-size:${vm._Style.fontSize}px;
-		color: ${vm._Style.color};
-		font-weight: ${vm._Style.fontWeight};
-		font-style:${vm._Style.fontItalic};
-		text-decoration:${vm._Style.fontUnderLine};`
+        color: ${vm._Style.color};
+        font-weight: ${vm._Style.fontWeight};
+        font-style:${vm._Style.fontItalic};
+        text-decoration:${vm._Style.fontUnderLine};`
       },
       _PrePositionStyle() {
         return this.item.editData.PrePositionStyle;

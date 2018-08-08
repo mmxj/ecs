@@ -1,4 +1,4 @@
-const initCommonDragData = {
+const initCommonDragData = {//初始通用拖拽数据
   typeNameList: [{
       typeName: 'label',
       dragMinWidth: 50,
@@ -30,10 +30,10 @@ const initCommonDragData = {
       dragMinHeight: 45
 		}
 		],
-    Directions: ['L', 'B', 'R', 'T', 'LT', 'LB', 'RT', 'RB']
+    Directions: ['L', 'B', 'R', 'T', 'LT', 'LB', 'RT', 'RB'] //方向
 }
-let initConfig = {
-  ctrlList: [
+let initConfig = { //初始数据
+  ctrlList: [ //任务列表？
 			'upLoadImg',
 			'label',
 			'chart',
@@ -41,7 +41,7 @@ let initConfig = {
 			'dashboard',
 			'datastate'
 		],
-  defLabelStyle: {
+  defLabelStyle: { // 模式label的style
     fontSize: '14',
     color: '#1F2D3D',
     fontWeight: 'normal',
@@ -49,10 +49,10 @@ let initConfig = {
     fontUnderLine: 'normal',
     AlignType: 1
   },
-  typeDatas() {
+  typeDatas() { //修改upLoadImg 为 get_***_data
     let typeDatas = [];
     for(let val of this.ctrlList) {
-    	if(val=='upLoadImg'){		
+    	if(val=='upLoadImg'){		//upLoadImg 改为upLoad_img
     		val='upLoad_img';
     	}
       typeDatas.push(`get_${val}_data`);
@@ -61,7 +61,7 @@ let initConfig = {
   }
 }
 //拖拽图片类
-class DragImg{
+class DragImg{ //
   constructor({
     refs,
     IsEquipment
@@ -69,10 +69,10 @@ class DragImg{
     console.log(refs, IsEquipment);
     //super(refs, IsEquipment);   
     this.refs = refs;
-    this.IsEquipment = IsEquipment;
+    this.IsEquipment = IsEquipment;//是设备？
     this.imgDatas = this.getImgDatas();
   }
-  getImgDatas() {
+  getImgDatas() { //获取图片默认data
     return {
       typeName: `upLoadImg`,
       refs: this.refs,
@@ -80,7 +80,7 @@ class DragImg{
       openEquiPic: false,
       Type: 0,
       IsEquipment: this.IsEquipment,
-      editData: {
+      editData: { //对象的默认数据
         imgUrl: '',
         layOutStyle: {
           left: '',
@@ -452,8 +452,8 @@ class DragDatastate extends CommonDrag {
         layOutStyle: {
           left: '',
           top: '',
-          width: '45px',
-          height: '45px'
+          width: '70px',
+          height: '70px'
         }
       }
     }

@@ -39,7 +39,8 @@
 	<el-input :disabled="mindex!='0'" v-model="propsData.startNum" class='dotVal' size='small'></el-input>
 	<span class="fontStyle colorSettingSpan" style="margin-left: 75px;">到</span>
 	<el-input  v-model="propsData.endNum" style="left:95px" class='dotVal' size='small'></el-input>
-	<el-color-picker v-model="propsData.regionColor" size='small' class="colorSettingPiker" ></el-color-picker>
+	<el-color-picker v-model="propsData.regionColor" size='small' class="colorSettingPiker" >
+  </el-color-picker>
 	<span v-if="sColorSettingInfoList.length>2" @click="deleteColorSetting(mindex)" class="infoSsp"></span>
 </div>
 </template>

@@ -4,7 +4,7 @@
     display: block;
     border-bottom: 1px solid #D1E3E2;
     border-left: 1px solid #D1E3E2;
-    border-right: 1px solid #D1E3E2;
+    /*border-right: 1px solid #D1E3E2;*/
     right: 140px;
     left: 0;
     text-align: left;
@@ -62,15 +62,30 @@
     visibility: hidden;
     height: 0
   }
+  .datablock-middle-line{
+    height: 100%;
+    width: 1px;
+
+    border-right:1px solid #D1E3E2;
+    position: absolute;
+    right:80px;
+    z-index: 8;
+    padding-left: 4px;
+    cursor: w-resize;
+  }
 </style>
 <template>
   <div style="height: 100%; width: 100%;position: relative;">
-    <div :style="PrePositionStyle" class="dataName" :class="{isIssuedataName:isNotisIssue}"> {{propsData.dataName}} </div>
-    <div class="dataValue" :class="{isIssuedataValue:isNotisIssue}"> 
+    <div :style="PrePositionStyle" class="dataName" :class="{isIssuedataName:isNotisIssue}" ref="mdatablockdataName"> {{propsData.dataName}} </div>
+
+    <div class="datablock-middle-line" @mousedown="lineMousdown" ref="datablockMiddleLine" :style="{left:lineLeft}"></div>
+    <div class="dataValue" :class="{isIssuedataValue:isNotisIssue}">
+
     	<span :style="PostPositionStyle" v-show="(!isDataChange)">
 			{{propsData.valContent}}
 		  </span>
     </div>
+
     <div v-if="!isNotisIssue" class="isCtr">
      	<i v-if="isPublish==1 && propsData.IsIssue==1 && get_expOself" @click="showDialog()" style="margin-left: 0;" class="fa  fa-cog m-r-5"></i>
 		</div>
@@ -94,7 +109,8 @@
         	dataName:this.propsData.dataName, 
         	finiedDialogVisi:false
         },
-        isNotisIssue:true
+        isNotisIssue:true,
+        lineLeft:0
       }
     },
     props: ['propsData', 'blockID','isPublish','singleDatablockLists'],
@@ -148,7 +164,9 @@
     	if(vm.isPublish && arr.length>0 && vm.get_expOself)
     		vm.isNotisIssue=false
     	else
-    		vm.isNotisIssue=true;    	
+    		vm.isNotisIssue=true;
+    	console.log(this.$refs.mdatablockdataName.clientWidth,'right')
+    	this.$set(this,'lineLeft',this.$refs.mdatablockdataName.clientWidth+'px')
     },
     methods: {
     	...mapMutations({
@@ -165,7 +183,34 @@
     			DisplayName:vm.propsData.dataName,    			
     			finiedDialogVisi:false
     		});
-    	}
+    	},
+      lineMousdown(e){
+    	  var vm=this;
+         var  e = e || event;
+        e.preventDefault();
+        e.stopPropagation();
+        let line= this.$refs.datablockMiddleLine;
+
+
+        let sX = e.clientX - line.offsetLeft+this.$refs.mdatablockdataName.clientWidth;
+        document.onmousemove = function(e){
+           var  e = e || event;
+          vm.fnMouseMove(e,sX)
+        };
+        document.onmouseup = function(){
+          vm.fnMouseUp()
+        }
+      },
+      fnMouseMove(e,sX ){
+        var  e = e || event;
+        let iL = e.clientX - sX+this.$refs.mdatablockdataName.clientWidth;
+        // console.log(left-iL)
+        this.$set(this,'lineLeft',iL+'px')
+      },
+      fnMouseUp(){
+        document.onmousemove = null;
+        document.onmouseup = null;
+      }
     }
   }
 </script>

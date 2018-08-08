@@ -158,14 +158,14 @@
         },
         IsOnline: true,
         addGatewayList: false,
-        projectData: {
-          ProjectId: this.$route.params.ProjectId,
-          ProjectName: this.$route.params.ProjectName,
-          currentView: '',
-          IsLocked: this.$route.params.IsLocked,
-          IsExperienceProject: this.$route.params.IsExperienceProject,
-          IsSelfProject: this.$route.params.IsSelfProject,
-          EquipmentId: ''
+        projectData: { //传递到子组件的数据
+          ProjectId: this.$route.params.ProjectId,//项目id
+          ProjectName: this.$route.params.ProjectName,//项目名称
+          currentView: '',//当前视图
+          IsLocked: this.$route.params.IsLocked,//上锁的
+          IsExperienceProject: this.$route.params.IsExperienceProject,//体验项目
+          IsSelfProject: this.$route.params.IsSelfProject, //
+          EquipmentId: '' //设备
         },
         currentViewTab: '',
         ProjectLogo: '',

@@ -49,10 +49,11 @@
       	let vm=this;
       	let params=[
 			`.${vm.className}`,
-			vm.propsData.refs,
-			vm.propsData.typeName,
-			val
+        vm.propsData.refs,
+        vm.propsData.typeName,
+        val
 		];
+        // 生成新的拖拽组件 传入基础数据
         new Dragcomponent(...params)
       }
     },
@@ -73,15 +74,17 @@
         /**********如果是曲线*****************/
         return;
       }
+
 		let params=[
 			`.${vm.className}`,
-			vm.propsData.refs,
-			vm.propsData.typeName,
-			vm.get_curr_setting
+        vm.propsData.refs,
+        vm.propsData.typeName,
+        vm.get_curr_setting //值 true 或false
 		];
       vm.$nextTick(() => {
         new Dragcomponent(...params)
       });
+
     }
   }
 </script>

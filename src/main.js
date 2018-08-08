@@ -38,7 +38,6 @@ router.beforeEach((to, from, next) => {
 	}else {
 		if(eosCommon.storage.get("AccessToken")){
 			function checkCode(stateCode,mes){
-				
 			    switch (stateCode) {
 			        case 99999:
 			            vdialog({title: '系统提示',type:'error',content: '您的网络不给力，请稍后试试吧！',modal: true,ok: function(){}});
@@ -93,12 +92,11 @@ router.beforeEach((to, from, next) => {
 			        },
 			        close: function(){
 			        	console.log('哈哈哈哈啊111');
-			        	
 			            next('/login');
 			        }
 			    });
 			};
-					if(to.path == '/' || to.path == '/ecos'){		            		
+			if(to.path == '/' || to.path == '/ecos'){
 		            		next('/ecos/index');		            		
 		            	}else{
 		            		next()

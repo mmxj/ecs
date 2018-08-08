@@ -28,7 +28,7 @@
   <div class="commonDatablock" :style="datablockStyles" style="width: 100%; height: 100%; margin:0 auto;">
     <div :style="titleStyles" class="dataTitle">{{propsData.title}}</div>
     <div v-if="isLoaded" v-for="(item ,index) in singleDatablockLists" class="singleBlock">
-      <commonsingle-datablock :blockID="propsData.refs" :singleDatablockLists="singleDatablockLists" :isPublish="isPublish" :propsData="item">
+      <commonsingle-datablock :blockID="propsData.refs" :singleDatablockLists="singleDatablockLists" :isPublish="isPublish" :propsData="item" :width="rightWidth">
       </commonsingle-datablock>
     </div>
   </div>
@@ -56,7 +56,8 @@
         Status: '',
         singleDatablockLists: [], //singLists: [],
         isLoaded: false,
-        isPublish: 0
+        isPublish: 0,
+        rightWidth:'80px'
       }
     },
     props: ['propsData'],
