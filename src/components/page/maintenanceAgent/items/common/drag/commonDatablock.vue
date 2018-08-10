@@ -28,7 +28,7 @@
   <div class="commonDatablock" :style="datablockStyles" style="width: 100%; height: 100%; margin:0 auto;">
     <div :style="titleStyles" class="dataTitle">{{propsData.title}}</div>
     <div v-if="isLoaded" v-for="(item ,index) in singleDatablockLists" class="singleBlock">
-      <commonsingle-datablock :blockID="propsData.refs" :singleDatablockLists="singleDatablockLists" :isPublish="isPublish" :propsData="item" :width="rightWidth">
+      <commonsingle-datablock :blockID="propsData.refs" :singleDatablockLists="singleDatablockLists" :isPublish="isPublish" :propsData="item"  :dataValueWidth="valueWidth" v-on:changeDataValueWidth="changeDataValueWidth">
       </commonsingle-datablock>
     </div>
   </div>
@@ -57,7 +57,7 @@
         singleDatablockLists: [], //singLists: [],
         isLoaded: false,
         isPublish: 0,
-        rightWidth:'80px'
+        valueWidth:'80'
       }
     },
     props: ['propsData'],
@@ -99,6 +99,7 @@
     },
     mounted() {
       this.getSingleDatablockLists();
+      this.$set(this,'valueWidth',this.propsData.editData.layOutStyle.ValueWidth);
       this.singleDatablockLists = this.singLists
     },
     methods: {
@@ -151,11 +152,13 @@
             resolve();
             return;
           }
+
           let res = testProtocol(...vm.testParams);
+
           if(res.length > 0) {
             myVal.protocolList = res;
             for(let v of myVal.protocolList) {
-              if(vm.currRegisterAddress) {
+              if(vm.currRegisterAddress) {//登录地区
                 if(vm.currRegisterAddress == v.RegisterAddress) {
                   vm.IsIssue = v.IsIssue;
                   vm.Status = v.Status;
@@ -170,7 +173,9 @@
             "EquipmentId": vm.currEquipmentId
           };
           let url = eosCommon.ENTERPRISE_API + "api/Equipment/QueryWorkProtocl";
+          console.log(vm.currEquipmentId)
           eosCommon.eosAjax(url, "get", param, "json", function(result) {
+
             if(eosCommon.checkCode(result.State, result.Message)) {
               vm.uPDATE_LOCAL({
                 updateType: 1,
@@ -192,6 +197,12 @@
             }
           });
         })
+      },
+      changeDataValueWidth(width){
+        this.$set(this,'valueWidth',width);
+        for(var item in this.singleDatablockLists){
+          this.$set(this.singleDatablockLists[item],'ValueWidth',width+'' );
+        }
       }
     }
   }

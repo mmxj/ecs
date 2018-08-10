@@ -1,4 +1,4 @@
-<style lang="less" src="assets/css/dragStyle/equipDrag.less" scoped="scoped"> 
+<style lang="less" src="assets/css/dragStyle/equipDrag.less" scoped="scoped">
 </style>
 <template>
   <div class="ovh dragData_wrap">
@@ -31,15 +31,15 @@
 		            </button>
 		      	</span> </ul>
             <div id="freshTimeSetting" class="clearfix pull-right" v-show="!get_curr_setting">
-              <div class="timerSetting pull-left"> 
-              	<span style="margin-right: 10px;" class="freshTimeSettingSpan">刷新频率：</span> 
-              	<span class="freshTimeSettingDataSpan">{{get_freshTime_Data.Rate}}</span> 
+              <div class="timerSetting pull-left">
+              	<span style="margin-right: 10px;" class="freshTimeSettingSpan">刷新频率：</span>
+              	<span class="freshTimeSettingDataSpan">{{get_freshTime_Data.Rate}}</span>
               	<span style="padding: 0 5px;" class="freshTimeSettingSpan">秒</span>
                 <span v-if="isShowDebugBtnByRole_PJ" style="" class="btn_wrap">
 			            <button style="margin: 0px;margin-bottom:3px;border: 1px solid #E2E6E9;"  @click='freshTimeSetting()' id="btn_t" type="button" class="btn fullScreen"  >
 			                <i class="fa fa-cog"></i>
 			            </button>
-	      				</span> 
+	      				</span>
               </div>
             </div>
           </div>
@@ -198,7 +198,7 @@
       currHeaderSelected(val, oldval) {},
       'operateType.reBackClickFlag' (val, oldval) {
         if(val == 2) {
-          //提示进入保存 
+          //提示进入保存
           this.isReback = true;
           this.confirmClose();
         }
@@ -243,7 +243,7 @@
           })
         }
       }
-   
+
     },
     computed: { ...mapGetters(['get_dragDataState', 'get_ctrData', 'isShowSideBar', 'get_upLoad_img_ID', 'get_label_ID', 'get_chart_ID', 'get_line_ID', 'get_datablock_ID', 'get_datastate_ID', 'get_curr_setting', 'get_curr_isPreview', 'get_upLoad_img_data', 'get_label_data', 'get_chart_data', 'get_datablock_data', 'get_dashboard_data', 'get_datastate_data', 'get_curr_TargetId', 'get_tempDrag_Datas', 'get_freshTime_Data', 'get_isAddDrag_state', 'get_curr_isHasData', 'get_isAddDrag_data', 'get_isDeleteClick_state'])
     },
@@ -386,7 +386,7 @@
       getObjId(id) {
         let vm = this;
         if(vm.get_tempDrag_Datas.length == 0 && (!vm.get_isDeleteClick_state)) {
-          vm.TargetId = id;       
+          vm.TargetId = id;
           eosCommon.storage.set('storageType', '');
           vm.QueryAssemblageDetail();
           vm.uPDATE_SETTING_STATE({
@@ -584,14 +584,15 @@
           "TargetId": vm.TargetId
         };
         let url = eosCommon.ENTERPRISE_API + "api/Assemblage/QueryAssemblageDetail";
-        eosCommon.eosAjax(url, "get", param, "json", function(result) {
+        eosCommon.eosAjax(url, "get", param, "json", function(result) {//请求场景数据
           if(eosCommon.checkCode(result.State, result.Message)) {
+
             vm.uPDATE_DRAGDATA_STATE({
               isObjListLoading: false,
               isDragDetalLoading: false
             });
             vm.AssemblageDetail = result.Data;
-
+            console.log(vm.AssemblageDetail,595);
             vm.uPDATE_FRESHTIME_DATA({
               Rate: result.Data.Rate,
               Time: vm.get_freshTime_Data.Time
@@ -646,7 +647,7 @@
               vm.toggleHeader('tablePanel', false);
             } else {
               //console.log('有数据了');
-              //展示数据							
+              //展示数据
               vm.uPDATE_SETTING_STATE({
                 curr_setting_state: false,
                 isPreview: true,
@@ -1113,7 +1114,7 @@
             var datablockCurrentData = [];
             for(let i = 0; i < len1; i++) {
               if(vm.AssemblageDynamicData[i].Type == 'Text') {
-                //get_label_data									
+                //get_label_data
                 for(let j = 0; j < vm.get_label_data.length; j++) {
                   if(vm.AssemblageDynamicData[i].Id == vm.get_label_data[j].refs) {
                     //console.log('刷数据哦哦：',vm.get_label_data[j]);

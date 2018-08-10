@@ -12,7 +12,7 @@ import {
 	TOGGLE_SIDEBAR,
 	RESET_WINDOWHEIGHT,
 	UPDATE_SHOWWHICHTAB,
-	//拖拽 
+	//拖拽
 	UPDATE_SETTING_STATE,
 	UPDATE_IMG_ID,
 	UPDATE_LABEL_ID,
@@ -58,8 +58,8 @@ import {
   	UPDATE_EXPOSELF,
   	UPDATE_EQLIST,
   	UPDATE_CNACTRL
-	
-	
+
+
 
 } from './types'
 import getters from './getters'
@@ -120,7 +120,7 @@ const state = {
 		EquipmentList: [],
 		singleEquipmentList:[]
 	},
-	
+
 	tempDragDatas: [],
 	freshTimeData: {
 		Rate: 5,
@@ -130,8 +130,8 @@ const state = {
 		isObjListLoading: true,
 		isDragDetalLoading: false
 	},
-	//设备列表是否有拖拽行为	
-	isAddDragData:{
+	//设备列表是否有拖拽行为
+	isAddDragData:{ //拖拽数据
 		 isAddDrag:false,
 		 type:'',
 		 currTypeID:'',
@@ -148,7 +148,7 @@ const state = {
 	datablockCurrentData:[],
 	  treeMenu: [],
 	  validCount:0,
-	  
+
 	  img_select:{
 	  	ScenePic:false,
 	  	EquiPic:false,
@@ -164,7 +164,7 @@ const state = {
     	RegisterAddress:'',
     	valContent:'',
     	Status:[],
-    	DisplayName:'', 
+    	DisplayName:'',
     	finiedDialogVisi:false
    },
    expOself:false,
@@ -176,8 +176,8 @@ const state = {
    	}]
    },
    isCanCtrl:0
-	   
-	
+
+
 };
 
 //用mutations调用actions.js中定义好的方法
@@ -245,19 +245,19 @@ const mutations = {
 		state.typesID.labelID=guid();
 	},
 	[UPDATE_CHART_ID](state, payload) {
-		state.typesID.chartID=guid();		
+		state.typesID.chartID=guid();
 	},
 	[UPDATE_LINE_ID](state, payload) {
-		state.typesID.lineID=guid();		
+		state.typesID.lineID=guid();
 	},
 	[UPDATE_DATABLOCK_ID](state, payload) {
-		state.typesID.datablockID=guid();		
+		state.typesID.datablockID=guid();
 	},
 	[UPDATE_DASHBOARD_ID](state, payload) {
-		state.typesID.dashboardID=guid();		
+		state.typesID.dashboardID=guid();
 	},
 	[UPDATE_DATASTATE_ID](state, payload) {
-		state.typesID.datastateID=guid();		
+		state.typesID.datastateID=guid();
 	},
 	//**************底图***************************
 	[UPDATE_UPLOAD_IMG](state, payload) {
@@ -279,12 +279,12 @@ const mutations = {
 				state.upLoadImg[i].editData.imgUrl = payload.imgUrl;
 				state.upLoadImg[i].editData.ResoureId = payload.ResourceId;
 				if(payload.Type==0||payload.Type==1){
-					state.upLoadImg[i].Type = payload.Type;					
+					state.upLoadImg[i].Type = payload.Type;
 				}
 			}
 		}
 	},
-	//更新文本 
+	//更新文本
 	[UPDATE_LABEL](state, payload) {
 		if(payload.isFreshLabel) {
 			for(let i = 0; i < state.label.length; i++) {
@@ -296,7 +296,7 @@ const mutations = {
 		}
 		if(payload.isClear) {
 			state.label = [];
-			state.label = payload.labelDatas;		
+			state.label = payload.labelDatas;
 			return;
 		} else {
 			state.label.push(payload.labelDatas);
@@ -313,7 +313,7 @@ const mutations = {
 			return;
 		}
 		if(payload.isClear) {
-			state.chart = [];					
+			state.chart = [];
 			state.chart = payload.chartDatas;
 			return;
 		} else {
@@ -326,7 +326,7 @@ const mutations = {
 			return;
 		}
 		if(payload.isClear) {
-			state.datablock = [];					
+			state.datablock = [];
 			state.datablock = payload.datablockDatas;
 			return;
 		} else {
@@ -334,23 +334,23 @@ const mutations = {
 		}
 	},
 	//更新仪表盘
-	[UPDATE_DASHBOARD](state, payload) {				
+	[UPDATE_DASHBOARD](state, payload) {
 		if(payload.isFreshDashboard) {
 			for(let i = 0; i < state.dashboard.length; i++) {
-				if(payload.dashboardContent.Id == state.dashboard[i].refs) {					
+				if(payload.dashboardContent.Id == state.dashboard[i].refs) {
 					state.dashboard[i].value = payload.dashboardContent.Value;
 					setTimeout(()=>{
 						try{
 							state.dashboard[i].value=state.dashboard[i].colorSettingInfo[0].startNum;
 						}catch(err){
-						}					
+						}
 					},state.freshTimeData.Rate*1000-500);
 				}
 			}
 			return;
 		}
 		if(payload.isClear) {
-			state.dashboard = [];					
+			state.dashboard = [];
 			state.dashboard = payload.dashboardDatas;
 			return;
 		} else {
@@ -358,7 +358,7 @@ const mutations = {
 		}
 	},
 	//更新数据状态控件
-	[UPDATE_DATASTATE](state, payload) {				
+	[UPDATE_DATASTATE](state, payload) {
 		if(payload.isFreshDatastate) {
 			for(let i = 0; i < state.datastate.length; i++) {
 				if(payload.StateGraphId == state.datastate[i].refs) {
@@ -369,7 +369,7 @@ const mutations = {
 			return;
 		}
 		if(payload.isClear) {
-			state.datastate = [];					
+			state.datastate = [];
 			state.datastate = payload.datastateDatas;
 			return;
 		} else {
@@ -383,7 +383,7 @@ const mutations = {
 			return;
 		}
 		state.operateMemory.isDeleteClick=payload.isDeleteClick;
-		let ctrlList=initConfig.ctrlList;		
+		let ctrlList=initConfig.ctrlList;
 		let len=ctrlList.length;
 		for(let i=0;i<len;i++){
 			if(payload.typeName==ctrlList[i]){
@@ -396,25 +396,25 @@ const mutations = {
 	},
 	[GET_EQUIPMENT_DATA](state, payload) {
 		state.commonEquipmentList.isEquip = payload.isEquip;
-		if(payload.isEquip){			
-			state.commonEquipmentList.singleEquipmentList = payload.EquipmentList;			
+		if(payload.isEquip){
+			state.commonEquipmentList.singleEquipmentList = payload.EquipmentList;
 		}else{
-			state.commonEquipmentList.EquipmentList = payload.EquipmentList;						
+			state.commonEquipmentList.EquipmentList = payload.EquipmentList;
 		}
 	},
 	//更新临时数据
 	[UPDATETEMPDATA](state, payload) {
-		if(payload.isClear) {
+		if(payload.isClear) {//清除数据
 			if(payload.data == 'save') {
 				state.tempDragDatas = [];
 				return;
 			}
 			let len1 = state.tempDragDatas.length;
-			let ctrlList=initConfig.ctrlList;		
+			let ctrlList=initConfig.ctrlList;
 			let len=ctrlList.length;
 			let params=[];
 			for(let j = 0; j < len1; j++) {
-				for(let i=0;i<len;i++){	
+				for(let i=0;i<len;i++){
 					params=['UPDATETEMP',state[`${ctrlList[i]}`],state.tempDragDatas[j]];
 					state[`${ctrlList[i]}`]=delEle(...params);
 				}
@@ -435,7 +435,7 @@ const mutations = {
 	[UPDATE_ISADDDRAG_STATE](state, payload) {
 		state.isAddDragData= payload;
 	},
-	[UPDATE_REFS](state, payload) {	
+	[UPDATE_REFS](state, payload) {
 		state.isAddDragData.isAddDrag = false;
 	},
 	[UPDATE_CURRENTVIEWTAB](state, payload) {
@@ -447,7 +447,7 @@ const mutations = {
 	[UPDATE_CHARTCURRENTDATA](state,payload){
 		state.chartCurrentData=payload;
 	},
-	[UPDATE_DATABLOCKCURRENTDATA](state,payload){	
+	[UPDATE_DATABLOCKCURRENTDATA](state,payload){
 		state.datablockCurrentData=payload;
 	},
 	 [SET_TREEMENU](state, newTreeMenu) {
@@ -490,21 +490,21 @@ const mutations = {
   		state.validCount=0;
   	}else{
 		state.validCount++;
-  	} 
+  	}
   },
   [SET_IMG_SELECT](state,payload){
-  	state.img_select.refs=payload.refs; 
+  	state.img_select.refs=payload.refs;
   	if(payload.selectType==0){
-  		//进入设场景图库  		
+  		//进入设场景图库
   		state.img_select.EquiPic=false;
   		if(payload.intoImgPage){
-  			state.img_select.ScenePic=true;  			 			 			
+  			state.img_select.ScenePic=true;
   			for(let val of state.upLoadImg){
   				if(payload.refs==val.refs){
   					val.openScenePic=true;
   					break;
   				}
-  			}  			
+  			}
   		}else{
   			state.img_select.ScenePic=false;
   			for(let val of state.upLoadImg){
@@ -520,10 +520,10 @@ const mutations = {
 			  	}
   				return;
   			}
-  		}  		  		
+  		}
   	}else if(payload.selectType==1){
   		//进入设备图库
-  		state.img_select.ScenePic=false; 
+  		state.img_select.ScenePic=false;
   		if(payload.intoImgPage){
   			state.img_select.EquiPic=true;
   			for(let val of state.upLoadImg){
@@ -547,9 +547,9 @@ const mutations = {
 			  	}
   				return;
   			}
-  		}    		 		 			
+  		}
   	}else{
-  		state.img_select.ScenePic=false; 
+  		state.img_select.ScenePic=false;
   		state.img_select.EquiPic=false;
   	}
   	state.img_select.sedImgDatas={
@@ -577,9 +577,9 @@ const mutations = {
  		state.protocolHandle.localEQList.push(payload.protocolList);
  	}else if(payload.updateType==2){
  		state.protocolHandle.localEQList=payload.protocolList;
- 	} 	 	
+ 	}
  },
- [UPDATE_CNACTRL](state,isCanCtrl){ 	
+ [UPDATE_CNACTRL](state,isCanCtrl){
  	state.isCanCtrl=isCanCtrl;
  }
 };

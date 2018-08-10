@@ -41,7 +41,7 @@ let S4 = () => {
 let guid = () => {
   return(S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
 }
-let testProtocol = (get_STORE_protocol, EquipmentId, type) => {
+let testProtocol = (get_STORE_protocol, EquipmentId, type) => { //测试协议
   let resProtocol = [];
   let _res = get_STORE_protocol.filter((val) => {
     return val.TerminalEquipmentId == EquipmentId
@@ -93,7 +93,7 @@ let reDialog=msg=>{
 	  });
 }
 let countSubstr=(str, substr)=>{
-	 let reg = new RegExp(substr, "g"); 
+	 let reg = new RegExp(substr, "g");
 	return str.match(reg) ? str.match(reg).length : 0;
 }
 let delEle=(delType,dataArr,currRefs)=>{
@@ -102,9 +102,9 @@ let delEle=(delType,dataArr,currRefs)=>{
 				for(let i = 0; i < len; i++) {
 					if(currRefs == newLabelArr[i].refs) {
 						newLabelArr.splice(i, 1);
-						if(delType=='DELETECURR'){							
+						if(delType=='DELETECURR'){
 							break;
-						}						
+						}
 					}
 				}
 		return [...newLabelArr];
@@ -112,7 +112,7 @@ let delEle=(delType,dataArr,currRefs)=>{
 let NumAscSort=(a, b) =>(a - b);
 let showNowBorder=(refs)=>{
 		let  tempStrType = eosCommon.storage.get('storageType');
-	  let storageType = tempStrType.split(','); //字符串转数组	
+	  let storageType = tempStrType.split(','); //字符串转数组
 	  for(let i = 0; i < storageType.length; i++) {
 	    let resize = document.getElementsByClassName('resize');
 	    for(let m = 0; m < resize.length; m++) {

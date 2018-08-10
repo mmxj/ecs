@@ -60,12 +60,14 @@
           <!--列表头部tab切换wrap  end-->
           <!--显示对应的列表start-->
           <div class="leftLists">
-            <component :fresh="freshData" v-on:comfirClose="getComfirClose" v-on:hasNoTargetIdList="getTargetIdListInfo" :propsData="equiListData" :is="equiListData.currentView" v-on:pageIndexChange="getPageIndex" :dataSend.sync='equiListDataSend' :tableLoad='tableLoad'> </component>
+            <!--is 用来判断显示的组件-->
+            <component :is="equiListData.currentView"  :fresh="freshData" v-on:comfirClose="getComfirClose" v-on:hasNoTargetIdList="getTargetIdListInfo" :propsData="equiListData" v-on:pageIndexChange="getPageIndex" :dataSend.sync='equiListDataSend' :tableLoad='tableLoad'> </component>
           </div>
           <!--显示对应的列表end-->
         </el-row>
         <!--左部列表end-->
         <!--右侧显示 start-->
+
         <div v-if="get_currentViewTab_data=='equiObjist'" class="ovh right_c" style="margin-top: 15px;">
           <!--右侧上方导航栏start-->
           <div id="drag_wrap">
@@ -120,7 +122,7 @@
                   <span class="pull-left btn_wrap">
                     <button style="padding-top: 3px; padding-bottom: 3px;font-size: 12px;" @click='comeToEdit()' id="btnInsert" type="button" class="btn fullScreen">
                         <i style="margin-left: 0;" class="fa  fa-cog m-r-5"></i>配置
-                    </button> 
+                    </button>
                   </span>
                   <!--全屏显示start-->
                   <span class="pull-left btn_wrap">
@@ -301,7 +303,7 @@ import {
   DragDatablock, //拖拽数据块
   DragDashboard, //拖拽表盘
   DragDatastate, //拖拽状态
-  StyleSavecommon  //保存字体样式数据
+  StyleSavecommon  //保存样式数据
 } from 'src/assets/js/common/commonData';
 
 export default {
@@ -459,7 +461,7 @@ export default {
         protocolList: []
       });
     },
-    propsData() {
+    propsData() { //处理父级props到子集的数据
       let vm = this
       let props = vm.propsData
       vm.equiListData.ProjectId = props.ProjectId
@@ -546,13 +548,13 @@ export default {
       let bool = route.params.isFromMap || route.query.warn
       return bool
     },
-    customLazy(src, errorImg) {
+    customLazy(src, errorImg) {//懒加载
       return commonFn.customLazy(src, errorImg)
     },
-    intoFullScreen() {
+    intoFullScreen() {//点击全屏
       window.open("/#/full_page_?TargetId=" + this.get_curr_TargetId + '&IsEquipment=false')
     },
-    freshTimeSetting() {
+    freshTimeSetting() { //刷新频率设置
 
       let vm = this;
       vm.$prompt('刷新时间(秒):', '设置刷新频率', { //修改样式的位置不知在哪 user.less？等看到其他messagebox在看看引用的是不是同一个样式
@@ -585,6 +587,7 @@ export default {
       eosCommon.eosAjax(url, "POST", param, "json", function(result) {
         // eosCommon.checkCode 检查状态码 返回正确
         if (eosCommon.checkCode(result.State, result.Message)) {
+
           vm.freshData.hasMakeFreshTime = !vm.freshData.hasMakeFreshTime;
 
           vm.$message({
@@ -603,8 +606,8 @@ export default {
         isHasData: true //是否有数据
       });
     },
-    confirmGiveUp() {
-      let vm = this
+    confirmGiveUp() { //放弃操作
+      let vm = this;
       if (vm.get_tempDrag_Datas.length == 0 && (!vm.get_isDeleteClick_state)) {
         return;
       }
@@ -639,12 +642,16 @@ export default {
       this.saveAllDragDatas();
     },
     getTargetIdListInfo(data) {
+
       this.cometoData = data;
+      console.log(this.cometoData, 647)
       if (this.cometoData && (!this.equiListData.isNotClick)) {
-        this.equiListData.currentView = 'equiList';
+
+        this.equiListData.currentView = 'equiList';//切换显示
         this.uPDATE_CURRENTVIEWTAB('equiList');
         this.IsEquipment = true;
         this.tableLoad();
+
       }
     },
     confirmClose() { //关闭前操作
@@ -684,14 +691,14 @@ export default {
         });
       })
     },
-    saveAllDragDatas() {
+    saveAllDragDatas() { //保存所有数据
       let vm = this;
       if (vm.isSaving) return
       vm.isSaving = true
       clearTimeout(vm.timeId)
       vm.timeId = setTimeout(function() {
         vm.isSaving = false
-      }, 1000)
+      }, 1000);
       let len_type = vm.typeDatas.length;
       let len_label = vm.get_label_data.length;
       let len_img = vm.get_upLoad_img_data.length;
@@ -816,11 +823,18 @@ export default {
             });
           }
         } else if (vm.typeDatas[j] == 'get_datablock_data') {
+
           for (let val of vm.get_datablock_data) {
-            vm.getStyleValue(val);
+            vm.getStyleValue(val);//获取宽高top和left的值
+
             let typeName = val.typeName;
             let refs = val.refs;
             let Theme = val.title;
+
+            //定义数据块右侧value的宽度 先偷个懒
+
+            val.editData.layOutStyle.ValueWidth=val.singleDatablockLists[0].ValueWidth;
+
             let Layout = JSON.stringify(val.editData.layOutStyle);
             let BackgroundColor = val.editData.datablockBg;
             let ThemeColor = val.editData.datablockTitleBg;
@@ -889,6 +903,7 @@ export default {
           for (let val of vm.get_datastate_data) {
             vm.getStyleValue(val);
             let refs = val.refs;
+
             let TerminalEquipmentId = val.dataStream.EquipmentId;
             let Address = val.dataStream.RegisterAddress;
             let Layout = JSON.stringify(val.editData.layOutStyle);
@@ -904,7 +919,7 @@ export default {
       } //提交数据
       vm.submitDragDatas();
     },
-    validateDrag() {
+    validateDrag() {//验证拖拽数据
       //Images
       let vm = this;
       for (let i = 0; i < vm.Images.length; i++) {
@@ -962,7 +977,7 @@ export default {
       }
       return true;
     },
-    submitDragDatas() {
+    submitDragDatas() {//提交拖拽数据
       let vm = this;
       let res = vm.validateDrag();
       if (!res) {
@@ -983,14 +998,14 @@ export default {
           "StateGraphs": vm.StateGraphs
         }
       };
-      let url = eosCommon.ENTERPRISE_API + "api/Assemblage/SetAssemblageContent";
+      let url = eosCommon.ENTERPRISE_API + "api/Assemblage/SetAssemblageContent";//保存设置组合内容
       eosCommon.eosAjax(url, "POST", param, "json", function(result) {
         if (eosCommon.checkCode(result.State, result.Message)) {
           vm.$message({
             type: 'success',
             message: '保存成功！'
           });
-          vm.uPDATETEMPDATA({
+          vm.uPDATETEMPDATA({//清除数据
             isClear: true,
             data: 'save'
           });
@@ -1036,20 +1051,20 @@ export default {
         }
       });
     },
-    getStyleValue(data) {
+    getStyleValue(data) {//获取样式的值
       let vm = this,
         left, top, width, height = '',
         el = document.querySelector('#wrap_' + data.refs);
-      left = el.style.left;
-      top = el.style.top;
-      width = getStyle(el)['width'];
-      height = getStyle(el)['height'];
-      data.editData.layOutStyle = { left, top, width, height }
+        left = el.style.left;
+        top = el.style.top;
+        width = getStyle(el)['width'];
+        height = getStyle(el)['height'];
+        data.editData.layOutStyle = { left, top, width, height }
     },
-    handleDrag(ev) {
+    handleDrag(ev) { //操作拖拽 不明功能
       let vm = this;
       var ev = ev || event;
-      vm.c_type = vm.c_id.substr(5);
+      vm.c_type = vm.c_id.substr(5); //截取第五个开始的字符串
       let elem = ev.srcElement || ev.target;
       let drag_panel_content = document.querySelector('.droptarget');
       let dscrollTop = drag_panel_content.scrollTop;
@@ -1087,6 +1102,7 @@ export default {
             paramsArr = ['upLoadImg', currImgID, L, T, refs];
             vm.fixPosition(...paramsArr);
             break;
+
           case 'label':
             vm.uPDATE_LABEL_ID({
               isReset: false
@@ -1114,6 +1130,7 @@ export default {
             paramsArr = ['label', currLabelID, L, T, refs];
             vm.fixPosition(...paramsArr);
             break;
+
           case 'chart':
             vm.uPDATE_CHART_ID({
               isReset: false
@@ -1149,12 +1166,14 @@ export default {
             vm.fixPosition(...paramsArr);
             break;
           case 'datablock':
+
             vm.uPDATE_DATABLOCK_ID({
               isReset: false
-            });
+            });//生成一个新的id
             vm.uPDATE_LINE_ID({
               isReset: false
             });
+
             let currDatablockID = vm.get_datablock_ID,
               refs = `datablock${currDatablockID}`;
             lineID = vm.get_line_ID;
@@ -1166,9 +1185,11 @@ export default {
               get_equipment_data: vm.get_equipment_data,
               lineID
             }
-            let dataBlock = new DragDatablock(plDataBlock);
+
+            let dataBlock = new DragDatablock(plDataBlock); //用数据生成一个新的节点
             let datablockDatas = dataBlock.datablockDatas;
-            vm.uPDATE_DATABLOCK({
+
+            vm.uPDATE_DATABLOCK({//更新模块数据
               isClear: false,
               isFreshDatablock: false,
               datablockDatas: datablockDatas
@@ -1180,6 +1201,7 @@ export default {
             paramsArr = ['datablock', currDatablockID, L, T, refs]
             vm.fixPosition(...paramsArr);
             break;
+
           case 'dashboard':
             vm.uPDATE_DASHBOARD_ID({
               isReset: false
@@ -1242,9 +1264,9 @@ export default {
 
       }
     },
-    fixPosition(type, currTypeID, L, T, refs) {
+    fixPosition(type, currTypeID, L, T, refs) { //定位坐标
       let vm = this;
-      if (vm.get_currentViewTab_data == 'equiList') {
+      if (vm.get_currentViewTab_data == 'equiList') { //当前数据
         vm.uPDATE_ISADDDRAG_STATE({ isAddDrag: true, type, currTypeID, L, T, refs });
         return;
       }
@@ -1264,12 +1286,12 @@ export default {
         showNowBorder(refs);
       });
     },
-    dragListener() {
+    dragListener() {//监听拖拽
       let vm = this;
       document.addEventListener("drag", (ev) => {
         var ev = ev || event;
         ev.preventDefault();
-        vm.c_id = ev.target.id
+        vm.c_id = ev.target.id;//设置c_id = 点击获取的目标
       });
       document.addEventListener("dragover", (ev) => {
         var ev = ev || event;
@@ -1316,16 +1338,16 @@ export default {
     },
     /*@tabText 列表名称 equiObjist  equiList  ''
     * @isNotClick  是否点击
-    * @isClickReback 是否
+    * @isClickReback 是否是返回键
     * */
     toggleTabs(tabText, isNotClick, isClickReback) {
       let vm = this;
       vm.tabText = tabText;
       vm.equiListData.isNotClick = isNotClick;
       vm.isClickReback = isClickReback;
-      // 'get_tempDrag_Datas', //临时拖拽的数据 需要查找从哪里定义的1.
+      // 'get_tempDrag_Datas', //临时拖拽的数据 .
       if (vm.get_tempDrag_Datas.length == 0 && (!vm.get_isDeleteClick_state)) {
-        if (vm.isClickReback) {
+        if (vm.isClickReback) { //如果是返回清除所有数据
           vm.gETPROTOCOLDATA({
             protocolList: []
           });
@@ -1341,7 +1363,7 @@ export default {
           });
           vm.btnReturn();
         } else {
-          vm.initToggleTabs(tabText);
+          vm.initToggleTabs(tabText); //非返回设置当前选中的tab
         }
         return;
       }
@@ -1353,7 +1375,7 @@ export default {
         isCustomClose: true,
         closeOnClickModal: false
       }).then(() => {
-        //确定操作         
+        //确定操作
         vm.saveAllDragDatas();
       }).catch(() => {
         vm.clearStorageTempDragData();
@@ -1387,17 +1409,21 @@ export default {
       let vm = this;
       vm.equiTabData = {};
       vm.equiListData.currentView = tabText;
+
       vm.uPDATE_CURRENTVIEWTAB(tabText);
-      vm.clearAllDatas();
+      vm.clearAllDatas(); //清除所有数据
       vm.dELETE_LABEL({
         typeName: '',
         currenIndex: '',
         isDeleteClick: false,
         isResetOperateMemory: true
       });
-      if (vm.get_currentViewTab_data == 'equiObjist') {
+
+      if (vm.get_currentViewTab_data == 'equiObjist') { //是否是设备
         vm.IsEquipment = false;
+
       } else {
+
         vm.IsEquipment = true;
         vm.tableLoad();
       }
@@ -1415,9 +1441,9 @@ export default {
           "Type": "1"
         }
       }
-      let url = this.detailUrl
+      let url = this.detailUrl; //获取设备详情
       GET(url, params).then(function(response) {
-        let res = response.data
+        let res = response.data;
         if (FUNC.checkCode(res.State, res.Message)) {
           vm.equiTabData = res.Data;
           vm.equiTabData.IsSelfProject = vm.equiListDataSend.IsSelfProject;
@@ -1460,7 +1486,8 @@ export default {
         }
       }
       let url = this.equipmentListUrl
-      GET(url, params).then(function(response) {
+      GET(url, params).then(function(response) { //设备的
+
         let res = response.data;
         if (FUNC.checkCode(res.State, res.Message)) {
           let dataArr = response.data.Data.Equipments
@@ -1553,17 +1580,18 @@ export default {
       let url = eosCommon.ENTERPRISE_API + 'api/project/HasIssueAction';
       eosCommon.eosAjax(url, "get", param, "json", function(result) {
         if (eosCommon.checkCode(result.State, result.Message)) {
+
           vm.cANCTRL(result.Data);
         }
       })
     },
     intoList(listName) {
-      this.equiListData.currentView = listName;
-      this.toggleTabs(listName, false);
+      this.equiListData.currentView = listName;//设置当前选中
+      this.toggleTabs(listName, false);//选中场景或设备
     },
     initData() { //初始化数据
       let vm = this;
-      let isEx = vm.propsData.IsExperienceProject;
+      let isEx = vm.propsData.IsExperienceProject; //
       let isSelf = vm.propsData.IsSelfProject;
 
       vm.isShowDebugBtnByRole_PJ = FUNC.operator.operateRoleFilter(isEx, isSelf);//通用函数里角色过滤 是否显示按钮
@@ -1600,17 +1628,18 @@ export default {
   },
   created() {
     let vm = this;
-    let ProjectId = eosCommon.storage.get('ProjectId');
-    let EquipmentId = eosCommon.storage.get('EquipmentId');
-    if (!ProjectId) {
+    let ProjectId = eosCommon.storage.get('ProjectId');//创建时候欧项目id
+    let EquipmentId = eosCommon.storage.get('EquipmentId');//创建时候获取设备id
+
+    if (!ProjectId) {//如果查找不到项目id 则设备id也设置为空
       eosCommon.storage.set('EquipmentId', '');
       //vm.propsData.EquipmentId='';
     } else {
-      if (EquipmentId) {
+      if (EquipmentId) { //如果有设备id 这将当前设备id 设置为获取的设备id
         vm.propsData.EquipmentId = EquipmentId;
       }
     }
-    vm.uPDATE_CTRDATA({
+    vm.uPDATE_CTRDATA({//对话框？
       dialogVisible: false,
       EquipmentId: '',
       valContent: '',
@@ -1626,7 +1655,7 @@ export default {
       vm.dragListener();
   }, 100);
   },
-  destroyed() {
+  destroyed() {//销毁
     let vm = this;
     vm.uPDATE_CURRENTVIEWTAB('');
     vm.clearAllDatas();

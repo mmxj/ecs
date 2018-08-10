@@ -105,6 +105,24 @@
               display: inline-block;
               background: url(../../../../../../../static/css/images/new_drag/12.png) no-repeat center;
             }
+            .moveicon{
+              width: 14px;
+              font-size: 10px;
+              top: -2px;
+              position: absolute;
+              right: 24px;
+              -webkit-transform: scale(0.75);
+              -moz-transform:scale(0.75);
+              transform: scale(0.75);
+              cursor: pointer;
+            }
+            .moveiconbottom{
+              top: 8px;
+            }
+            .disable{
+              color:#e6e6e6;
+              cursor:default;
+            }
           }
         }
       }
@@ -176,7 +194,7 @@
       }
     }
   }
-  
+
   .isEquipClass {
     top: 40px;
     bottom: 0px;
@@ -200,11 +218,20 @@
         <div class="dataSetting_wrap">
           <div v-show="currEdit=='dataSetting'" class="dataSetting">
             <div class="myHr"></div>
-            <div class="info"> <span class="fontStyle infoFsp" :class="[currentDatablock==('数据'+index) ? ExpandBg : noExpandBg]" @click="toggleDatablock(index)">数据{{index+1}}：</span> <span v-if="datablockData.length>1" @click="deleteDatablock(index)" class="deleteDatablock infoSsp"></span> </div>
-            <single-datablock v-show="currentDatablock=='数据'+index"  :datablockData="datablockData" :isEquip="isEquip" :indexs="index" :item="item"> </single-datablock>
+            <div class="info">
+              <span class="fontStyle infoFsp" :class="[currentDatablock==('数据'+index) ? ExpandBg : noExpandBg]" @click="toggleDatablock(index)">数据{{index+1}}：</span>
+              <i v-if="datablockData.length>1" @click="()=>{index!=0?dataBlockListUp(item,index):null}"  class="el-icon-arrow-up moveicon" :class="{disable:index==0}"></i>
+              <i v-if="datablockData.length>1" @click="()=>{index!=(datablockData.length-1)?dataBlockListDown(item,index):null}"  class="el-icon-arrow-down moveicon moveiconbottom" :class="{disable:index==(datablockData.length-1)}" ></i>
+              <span v-if="datablockData.length>1" @click="deleteDatablock(index)" class="deleteDatablock infoSsp"></span>
+            </div>
+            <single-datablock v-show="currentDatablock=='数据'+index"  :datablockData="datablockData" :isEquip="isEquip" :indexs="index" :item="item">
+
+            </single-datablock>
           </div>
         </div>
       </div>
+
+      <!--控件样式设置start-->
       <div v-show="currEdit=='styleSetting'" class="styleSetting">
         <div class="colorSetting_wrap"> <span class="fontStyle colorSettingSpan" style="">控件背景颜色：</span>
           <el-color-picker v-model="propsData.editData.datablockBg" class="colorSettingPiker"></el-color-picker>
@@ -227,6 +254,7 @@
           <el-color-picker v-model="propsData.editData.Style.color" class="colorSettingPiker"></el-color-picker>
         </div>
       </div>
+      <!--控件样式设置end-->
       <div v-if="currEdit=='dataSetting'" class="addDatablock">
         <div @click="addDatablock()" class="addDatablockWrap"> <img src="static/css/images/new_drag/13.png" />
           <div class="fontStyle"> 添加数点 </div>
@@ -234,12 +262,12 @@
       </div>
     </div>
     <div class="operations" style="">
-      <div class="operatesBtns form-inline clearfix"> 
+      <div class="operatesBtns form-inline clearfix">
       	<span class="pull-left btn_wrap" style="width: 100%;">
             <button @click='deleteCurrentPanel($event)' id="btnInsert" type="button" style="background: #E74C3C;color: #fff; width: 100%;" class="btn" >
                 <i style="margin-left: 0;" class="fa fa-trash-o m-r-5"></i>删除
             </button>
-	    </span> 
+	    </span>
       </div>
     </div>
   </div>
@@ -250,7 +278,7 @@
     mapMutations
   } from 'vuex'
   import singleDatablock from './singleDatablock'
-  import {deletePanel } from 'src/assets/js/common/util';	  
+  import {deletePanel } from 'src/assets/js/common/util';
   export default {
     data() {
       return {
@@ -280,7 +308,7 @@
         	isEquip:false,
           EquipmentList: this.propsData.eqInfo
         } );
-        for( let val of vm.datablockData ) {       	
+        for( let val of vm.datablockData ) {
           val.get_equipment_data = vm.propsData.eqInfo;
         }
       }
@@ -370,6 +398,18 @@
           isDeleteClick: true,
           isResetOperateMemory: false
         } )
+      },
+      dataBlockListUp(item,index){//改变上调数据的顺序
+        let temporary = this.datablockData[index-1];
+        this.$set(this.datablockData,index-1,item);
+        this.$set(this.datablockData,index,temporary);
+        this.currentDatablock= '数据'+ (index-1);
+      },
+      dataBlockListDown(item,index){//改变下调数据的顺序
+        let temporary = this.datablockData[index+1];
+        this.$set(this.datablockData,index+1,item);
+        this.$set(this.datablockData,index,temporary);
+        this.currentDatablock= '数据'+(index+1);
       }
     }
   }

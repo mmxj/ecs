@@ -65,22 +65,20 @@
   .datablock-middle-line{
     height: 100%;
     width: 1px;
-
     border-right:1px solid #D1E3E2;
     position: absolute;
-    right:80px;
     z-index: 8;
     padding-left: 4px;
+  }
+  .moveline{
     cursor: w-resize;
   }
 </style>
 <template>
-  <div style="height: 100%; width: 100%;position: relative;">
-    <div :style="PrePositionStyle" class="dataName" :class="{isIssuedataName:isNotisIssue}" ref="mdatablockdataName"> {{propsData.dataName}} </div>
-
-    <div class="datablock-middle-line" @mousedown="lineMousdown" ref="datablockMiddleLine" :style="{left:lineLeft}"></div>
-    <div class="dataValue" :class="{isIssuedataValue:isNotisIssue}">
-
+  <div style="height: 100%; width: 100%;position: relative;" ref="datablockWrap">
+    <div :style="PrePositionStyle" class="dataName" :class="{isIssuedataName:isNotisIssue}" ref="mdatablockdataName" > {{propsData.dataName}} </div>
+    <div class="datablock-middle-line" :class="{moveline:get_curr_setting}" @mousedown="lineMousdown" ref="datablockMiddleLine" :style="{right:lineright}"></div>
+    <div class="dataValue" :class="{isIssuedataValue:isNotisIssue}" ref="mdatablockdataValue" :style="{width:valueWidth}">
     	<span :style="PostPositionStyle" v-show="(!isDataChange)">
 			{{propsData.valContent}}
 		  </span>
@@ -93,7 +91,7 @@
   </div>
 </template>
 <script>
-  import { mapGetters, mapMutations } from 'vuex' 
+  import { mapGetters, mapMutations } from 'vuex'
   import {
     Chart,
     myChart
@@ -102,29 +100,36 @@
   //import { mapGetters, mapMutations } from 'vuex'
   export default {
     data() {
-      return {     	
+
+      return {
         isDataChange: false,
         ctrData:{
         	dialogVisible:false,
-        	dataName:this.propsData.dataName, 
+        	dataName:this.propsData.dataName,
         	finiedDialogVisi:false
         },
         isNotisIssue:true,
-        lineLeft:0
+        lineLeft:0,
+        valueWidth:'80px',
+        lineright:'80px'
+
+
       }
     },
-    props: ['propsData', 'blockID','isPublish','singleDatablockLists'],
+    props: ['propsData', 'blockID','isPublish','singleDatablockLists','dataValueWidth'],
     components:{
     	commonDialog
     },
-    computed: { ...mapGetters(["get_datablockCurr_data", "get_freshTime_Data","get_treeMenu","get_expOself"]),
+    computed: { ...mapGetters(["get_datablockCurr_data", "get_freshTime_Data","get_treeMenu","get_expOself","get_curr_setting"]),
       PrePositionStyle() {
         let vm = this;
+
         return `font-size:${vm.propsData.PrePositionStyle.fontSize}px;
 				color: ${vm.propsData.PrePositionStyle.color};
 				font-weight: ${vm.propsData.PrePositionStyle.fontWeight};
 				font-style:${vm.propsData.PrePositionStyle.fontItalic};
-				text-decoration:${vm.propsData.PrePositionStyle.fontUnderLine};`
+				text-decoration:${vm.propsData.PrePositionStyle.fontUnderLine};
+				right:${vm.isNotisIssue?(vm.propsData.ValueWidth+'px'):(parseInt(vm.propsData.ValueWidth)+60)+'px'};`
       },
       PostPositionStyle() {
         let vm = this;
@@ -154,19 +159,54 @@
         setTimeout(() => {
           this.isDataChange = false;
         }, 500);
+      },
+      "dataValueWidth"(val,oldVal){
+        if(!this.isNotisIssue){
+          this.$set(this,'lineright',val+60+'px');
+          this.$set(this,'valueWidth',val+'px');
+        }else{
+          this.$set(this,'lineright',val+'px');
+          this.$set(this,'valueWidth',val+'px');
+        }
+
+
       }
     },
-    mounted() { 
+    mounted() {
     	let vm=this;
     	let arr=vm.singleDatablockLists.filter((val)=>{
     		return val.IsIssue==1;
     	});
     	if(vm.isPublish && arr.length>0 && vm.get_expOself)
-    		vm.isNotisIssue=false
+      {vm.isNotisIssue=false}
     	else
-    		vm.isNotisIssue=true;
-    	console.log(this.$refs.mdatablockdataName.clientWidth,'right')
-    	this.$set(this,'lineLeft',this.$refs.mdatablockdataName.clientWidth+'px')
+      {vm.isNotisIssue=true;}
+
+      if(vm.propsData.ValueWidth){
+
+        if(!vm.isNotisIssue){
+
+          this.$set(this,'lineright',(parseInt(vm.propsData.ValueWidth)+60)+'px');
+
+        }else{
+          this.$set(this,'lineright',vm.propsData.ValueWidth+'px')
+        }
+
+      }else{
+
+    	  if(!vm.isNotisIssue){
+
+          this.$set(this,'lineright',(parseInt(this.dataValueWidth)+60)+'px');
+
+        }else{
+          this.$set(this,'lineright',this.dataValueWidth+'px')
+        }
+        this.$nextTick(()=>{
+          this.$set(this,'valueWidth',this.dataValueWidth+'px');
+          this.$emit("changeDataValueWidth",this.dataValueWidth)
+        })
+      }
+
     },
     methods: {
     	...mapMutations({
@@ -180,22 +220,21 @@
     			RegisterAddress:vm.propsData.dataStream.RegisterAddress,
     			valContent:vm.propsData.valContent,
     			Status:vm.propsData.Status,
-    			DisplayName:vm.propsData.dataName,    			
+    			DisplayName:vm.propsData.dataName,
     			finiedDialogVisi:false
     		});
     	},
       lineMousdown(e){
     	  var vm=this;
-         var  e = e || event;
+       if(!vm.get_curr_setting){return };
+        var  e = e || event;
         e.preventDefault();
         e.stopPropagation();
         let line= this.$refs.datablockMiddleLine;
-
-
-        let sX = e.clientX - line.offsetLeft+this.$refs.mdatablockdataName.clientWidth;
+        let sX = e.clientX ;
         document.onmousemove = function(e){
            var  e = e || event;
-          vm.fnMouseMove(e,sX)
+            vm.fnMouseMove(e,sX)
         };
         document.onmouseup = function(){
           vm.fnMouseUp()
@@ -204,12 +243,38 @@
       fnMouseMove(e,sX ){
         var  e = e || event;
         let iL = e.clientX - sX+this.$refs.mdatablockdataName.clientWidth;
-        // console.log(left-iL)
-        this.$set(this,'lineLeft',iL+'px')
+        this.iR = -(e.clientX-sX)+this.$refs.mdatablockdataValue.clientWidth;
+        if(this.iR> 10&& this.iR<(this.$refs.datablockWrap.clientWidth-10)){
+
+          if(!this.isNotisIssue){
+            this.$set(this,'lineright',this.iR+60+'px');
+
+          }else{
+            this.$set(this,'lineright',this.iR+'px');
+          }
+
+        }
       },
       fnMouseUp(){
+        if(this.iR> 10&& this.iR<(this.$refs.datablockWrap.clientWidth-10)){
+          if(!this.isNotisIssue){
+            this.$set(this,'valueWidth',this.iR+'px');
+          }else{
+            this.$set(this,'valueWidth',this.iR+'px');
+          }
+          this.changeValueWidth();
+        }
         document.onmousemove = null;
         document.onmouseup = null;
+      },
+      changeValueWidth(){
+        if(!this.isNotisIssue){
+          this.$emit("changeDataValueWidth",this.iR)
+        }else{
+
+          this.$emit("changeDataValueWidth",this.iR)
+        }
+
       }
     }
   }

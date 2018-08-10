@@ -67,7 +67,7 @@ class DragImg{ //
     IsEquipment
   }) {
     console.log(refs, IsEquipment);
-    //super(refs, IsEquipment);   
+    //super(refs, IsEquipment);
     this.refs = refs;
     this.IsEquipment = IsEquipment;//是设备？
     this.imgDatas = this.getImgDatas();
@@ -452,14 +452,14 @@ class DragDatastate extends CommonDrag {
         layOutStyle: {
           left: '',
           top: '',
-          width: '70px',
-          height: '70px'
+          width: '60px',
+          height: '60px'
         }
       }
     }
   }
 }
-//保存数据字体样式类
+//通用样式储存
 class StyleSavecommon{
 	constructor(Style){
 		 this.Color = Style.color;

@@ -1,6 +1,4 @@
 <style scoped="scoped" src="assets/css/dragStyle/equipment_objlist.less" lang="less">
-
-
 </style>
 <style scoped lang='less'>
 .logoWrap {
@@ -319,7 +317,7 @@ export default {
       // console.log(isIMG)
       const isLt3M = file.size / 1024 / 1024 < 3;
       if (!isIMG) {
-        this.$message.error('上传头像图片只能是 JPG 或 PNG 格式!');
+        this.$message.error('上传图片只能是 JPG 或 PNG 格式!');
         return false
       }
       if (!isLt3M) {
@@ -575,6 +573,7 @@ export default {
       };
       let url = eosCommon.ENTERPRISE_API + "api/Assemblage/QueryAssemblageDetail";
       eosCommon.eosAjax(url, "get", param, "json", async function(result) {
+
         if (eosCommon.checkCode(result.State, result.Message)) {
           vm.uPDATE_DRAGDATA_STATE({
             isObjListLoading: false,
@@ -636,7 +635,7 @@ export default {
               datastateDatas: datastateDatasArr
             });
           } else {
-            //展示数据              
+            //展示数据
             vm.uPDATE_SETTING_STATE({
               curr_setting_state: false,
               isPreview: true,
@@ -913,6 +912,7 @@ export default {
                     PostPositionStyle: new StyleShowcommon(val.PostPositionStyle),
                   });
                 }
+
                 datablockDatasArr.push({
                   typeName: `datablock`,
                   IsEquipment: false,
